@@ -3,37 +3,39 @@ import 'package:mapsko/home/home.dart';
 import 'package:mapsko/teampage/team.dart';
 
 class ContactUsPage extends StatelessWidget {
+  const ContactUsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MCBOA'),
+        title: const Text('MCBOA'),
         actions: [
           TextButton(
             onPressed: () {},
-            child: Text('Home'),
+            child: const Text('Home'),
           ),
           TextButton(
             onPressed: () {
-              HomePage();
+              const HomePage();
             },
-            child: Text('Our Team'),
+            child: const Text('Our Team'),
           ),
           TextButton(
             onPressed: () {
-              TeamPage();
+              const TeamPage();
             },
-            child: Text('Contact'),
+            child: const Text('Contact'),
           ),
           TextButton(
             onPressed: () {
-              ContactUsPage();
+              const ContactUsPage();
             },
-            child: Text('Document'),
+            child: const Text('Document'),
           ),
           TextButton(
             onPressed: () {},
-            child: Text('Login/Register'),
+            child: const Text('Login/Register'),
           ),
           // ... other buttons
         ],
@@ -50,36 +52,36 @@ class ContactUsPage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Phone Number'),
+                    const Text('Phone Number'),
                     TextButton(
                       onPressed: () {
                         // Handle phone call
                       },
-                      child: Text('+91-9910261081'),
+                      child: const Text('+91-9910261081'),
                     ),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Email Address'),
+                    const Text('Email Address'),
                     TextButton(
                       onPressed: () {
                         // Handle email
                       },
-                      child: Text('mobos82@gmail.com'),
+                      child: const Text('mobos82@gmail.com'),
                     ),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Office Address'),
+                    const Text('Office Address'),
                     TextButton(
                       onPressed: () {
                         // Handle directions
                       },
-                      child: Text(
+                      child: const Text(
                           'C/O Maintenance Office, Mapsko Casa Bella, Sector 82, Gurugram, Haryana'),
                     ),
                   ],
@@ -87,21 +89,21 @@ class ContactUsPage extends StatelessWidget {
               ],
             ),
             // Contact form
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Contact Us',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
-            Text('If You Have Any Queries, Please Feel Free To Contact Us'),
-            SizedBox(height: 20),
+            const SizedBox(height: 10),
+            const Text('If You Have Any Queries, Please Feel Free To Contact Us'),
+            const SizedBox(height: 20),
             Form(
               child: Column(
                 children: [
                   // Use Expanded to make form fields responsive
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Your Name'),
+                      decoration: const InputDecoration(labelText: 'Your Name'),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Please enter your name';
@@ -112,7 +114,7 @@ class ContactUsPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Your Email'),
+                      decoration: const InputDecoration(labelText: 'Your Email'),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Please enter your email address';
@@ -128,20 +130,20 @@ class ContactUsPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Subject'),
+                      decoration: const InputDecoration(labelText: 'Subject'),
                     ),
                   ),
                   Expanded(
                     child: TextFormField(
                       maxLines: 5,
-                      decoration: InputDecoration(labelText: 'Message'),
+                      decoration: const InputDecoration(labelText: 'Message'),
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       // Handle form submission
                     },
-                    child: Text('Send Message'),
+                    child: const Text('Send Message'),
                   ),
                 ],
               ),
