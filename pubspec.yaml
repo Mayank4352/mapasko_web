@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   responsive_sizer:
   get:
+  google_fonts: 
 
 dev_dependencies:
   flutter_test:
