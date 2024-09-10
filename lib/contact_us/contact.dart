@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/home/widgets/footer.dart';
-import 'package:mapsko/home/widgets/homeAppBar.dart';
+import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ContactUsPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class ContactUsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HomeAppBar(),
+            const HomeAppBar(),
             SizedBox(
               width: double.infinity,
               height: 90.h,
@@ -24,7 +24,7 @@ class ContactUsPage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(left: 20.h, right: 5.h, top: 5.h),
                     child: Container(
-                      color: Color(0xf757575),
+                      color: const Color(0x0f757575),
                       height: 35.h,
                       width: 20.w,
                       child: Column(
@@ -32,10 +32,10 @@ class ContactUsPage extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.call),
+                            icon: const Icon(Icons.call),
                             iconSize: 5.h,
                             splashColor: Colors.white,
-                            color: Color(0xffff5e14),
+                            color: const Color(0xffff5e14),
                             padding: EdgeInsets.all(1.h),
                           ),
                           SizedBox(height: 5.h),
@@ -59,6 +59,10 @@ class ContactUsPage extends StatelessWidget {
                             padding: EdgeInsets.only(top: 3.h),
                             child: ElevatedButton(
                                 onPressed: () {},
+                                style: const ButtonStyle(
+                                    backgroundColor:
+                                        WidgetStatePropertyAll<Color>(
+                                            Color(0xffff5e14))),
                                 child: Text('Call Now',
                                     style: TextStyle(
                                       fontSize: 2.h,
@@ -66,11 +70,7 @@ class ContactUsPage extends StatelessWidget {
                                       color: Colors.white,
                                       fontFamily:
                                           GoogleFonts.nunito().fontFamily,
-                                    )),
-                                style: const ButtonStyle(
-                                    backgroundColor:
-                                        WidgetStatePropertyAll<Color>(
-                                            Color(0xffff5e14)))),
+                                    ))),
                           )
                         ],
                       ),
@@ -79,7 +79,7 @@ class ContactUsPage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(left: 10.h, right: 5.h, top: 5.h),
                     child: Container(
-                      color: Color(0xf757575),
+                      color: const Color(0x0f757575),
                       height: 35.h,
                       width: 20.w,
                       child: Column(
@@ -87,9 +87,9 @@ class ContactUsPage extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.email),
+                            icon: const Icon(Icons.email),
                             iconSize: 5.h,
-                            color: Color(0xffff5e14),
+                            color: const Color(0xffff5e14),
                             padding: EdgeInsets.all(1.h),
                           ),
                           SizedBox(height: 5.h),
@@ -113,6 +113,10 @@ class ContactUsPage extends StatelessWidget {
                             padding: EdgeInsets.only(top: 3.h),
                             child: ElevatedButton(
                                 onPressed: () {},
+                                style: const ButtonStyle(
+                                    backgroundColor:
+                                        WidgetStatePropertyAll<Color>(
+                                            Color(0xffff5e14))),
                                 child: Text('Email Address',
                                     style: TextStyle(
                                       fontSize: 2.h,
@@ -120,11 +124,7 @@ class ContactUsPage extends StatelessWidget {
                                       color: Colors.white,
                                       fontFamily:
                                           GoogleFonts.nunito().fontFamily,
-                                    )),
-                                style: const ButtonStyle(
-                                    backgroundColor:
-                                        WidgetStatePropertyAll<Color>(
-                                            Color(0xffff5e14)))),
+                                    ))),
                           )
                         ],
                       ),
@@ -133,7 +133,7 @@ class ContactUsPage extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 5.h),
                     child: Container(
-                      color: Color(0xf757575),
+                      color: const Color(0x0f757575),
                       height: 35.h,
                       width: 20.w,
                       child: Column(
@@ -142,10 +142,10 @@ class ContactUsPage extends StatelessWidget {
                           Padding(padding: EdgeInsets.only(bottom: 3.h)),
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.location_on),
+                            icon: const Icon(Icons.location_on),
                             padding: EdgeInsets.all(1.h),
                             iconSize: 5.h,
-                            color: Color(0xffff5e14),
+                            color: const Color(0xffff5e14),
                           ),
                           SizedBox(height: 4.h),
                           Text(
@@ -167,17 +167,17 @@ class ContactUsPage extends StatelessWidget {
                               )),
                           ElevatedButton(
                               onPressed: () {},
+                              style: const ButtonStyle(
+                                  backgroundColor:
+                                      WidgetStatePropertyAll<Color>(
+                                          Color(0xffff5e14))),
                               child: Text('Get Directions',
                                   style: TextStyle(
                                     fontSize: 2.h,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white,
                                     fontFamily: GoogleFonts.nunito().fontFamily,
-                                  )),
-                              style: const ButtonStyle(
-                                  backgroundColor:
-                                      WidgetStatePropertyAll<Color>(
-                                          Color(0xffff5e14))))
+                                  )))
                         ],
                       ),
                     ),
@@ -245,7 +245,7 @@ class ContactUsPage extends StatelessWidget {
             //     ),
             //   ),
             // ),
-            Footer(),
+            const Footer(),
           ],
         ),
       ),

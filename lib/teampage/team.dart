@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mapsko/home/widgets/homeAppBar.dart';
+import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class TeamPage extends StatelessWidget {
@@ -18,9 +18,9 @@ class TeamPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HomeAppBar(),
-            Text("OUR TEAM"),
-            Text(
+            const HomeAppBar(),
+            const Text("OUR TEAM"),
+            const Text(
               "TEAM MEMBERS",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
             ),
@@ -28,7 +28,7 @@ class TeamPage extends StatelessWidget {
               padding: EdgeInsets.all(20.sp),
               child: GridView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisExtent: 40.h,
 
@@ -45,7 +45,7 @@ class TeamPage extends StatelessWidget {
                     index: index,
                   );
                 },
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
               ),
             ),
             // MemberWidget()
