@@ -36,6 +36,8 @@ dependencies:
   firebase_core:
   firebase_storage:
   page_transition:
+  google_fonts: 
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:

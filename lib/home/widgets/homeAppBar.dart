@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:mapsko/contact_us/contact.dart';
+import 'package:mapsko/teampage/team.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeAppBar extends StatefulWidget {
   const HomeAppBar({super.key});
@@ -14,8 +17,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
+      height: 5.h,
       child: AppBar(
-        shadowColor: Colors.pink[50],
+        shadowColor: Color(0xffff5e14),
         title: const Text('Mapsko Royale Ville'),
         actions: [
           TextButton(
