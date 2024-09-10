@@ -14,7 +14,7 @@ class Footer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            '© Madhav Gupta. All Rights Reserved.',
+            '© Mapsko. All Rights Reserved.',
             style: TextStyle(
               color: Colors.white,
               fontSize: 12.sp,
