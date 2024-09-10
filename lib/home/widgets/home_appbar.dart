@@ -13,38 +13,39 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       shadowColor: const Color(0xffff5e14),
       title: const Text('Mapsko Royale Ville'),
       actions: [
         TextButton(
           onPressed: () {
-            Get.offNamed('/home');
+            Get.offAllNamed('/home');
           },
           child: const Text('Home'),
         ),
         TextButton(
           onPressed: () {
-            Get.offNamed('/team');
+            Get.offAllNamed('/team');
           },
           child: const Text('Our Team'),
         ),
         TextButton(
           onPressed: () {
-            Get.offNamed('/contact');
+            Get.offAllNamed('/contact');
           },
           child: const Text('Contact'),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.offAllNamed('/documents');
+          },
           child: const Text('Documents'),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.offAllNamed('/tenders');
+          },
           child: const Text('Tenders'),
-        ),
-        TextButton(
-          onPressed: () {},
-          child: const Text('Login/Register'),
         ),
       ],
     );

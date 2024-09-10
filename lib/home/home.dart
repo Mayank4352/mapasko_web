@@ -145,7 +145,7 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Footer(),
+            const Footer(),
           ],
         ),
       ),

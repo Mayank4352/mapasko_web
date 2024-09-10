@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
-import 'package:mapsko/teampage/widgets/member_widget.dart';
+import 'package:mapsko/team/widgets/member_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class TeamPage extends StatelessWidget {
@@ -50,7 +49,7 @@ class TeamPage extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
               ),
             ),
-            Footer(),
+            //Footer(),
           ],
         ),
       ),

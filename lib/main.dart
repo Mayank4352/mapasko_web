@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:mapsko/contact_us/contact.dart';
+import 'package:mapsko/contact/contact.dart';
+import 'package:mapsko/documents/document_page.dart';
 import 'package:mapsko/home/home.dart';
-import 'package:mapsko/teampage/team.dart';
+import 'package:mapsko/team/team.dart';
+import 'package:mapsko/tenders/tender_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -35,20 +37,20 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      // case '/AlphaGo':
-      //   return PageTransition(
-      //     child: const AlphaGoScreen(),
-      //     duration: const Duration(milliseconds: 300),
-      //     type: PageTransitionType.fade,
-      //     settings: settings,
-      //   );
-      // case '/OmegaWireless':
-      //   return PageTransition(
-      //     child: const OmegaWirelessScreen(),
-      //     duration: const Duration(milliseconds: 300),
-      //     type: PageTransitionType.fade,
-      //     settings: settings,
-      //   );
+      case '/documents':
+        return PageTransition(
+          child: const DocumentPage(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/tenders':
+        return PageTransition(
+          child: const TenderPage(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
       // case '/Spectrum':
       //   return PageTransition(
       //     child: const SpectrumScreen(),
