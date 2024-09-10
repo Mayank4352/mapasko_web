@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:mapsko/teampage/team.dart';
 
 class HomeAppBar extends StatefulWidget {
   const HomeAppBar({super.key});

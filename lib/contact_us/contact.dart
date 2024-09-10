@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/home.dart';
+import 'package:mapsko/home/widgets/homeAppBar.dart';
 import 'package:mapsko/teampage/team.dart';
 
 class ContactUsPage extends StatelessWidget {
@@ -8,44 +9,12 @@ class ContactUsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MCBOA'),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text('Home'),
-          ),
-          TextButton(
-            onPressed: () {
-              const HomePage();
-            },
-            child: const Text('Our Team'),
-          ),
-          TextButton(
-            onPressed: () {
-              const TeamPage();
-            },
-            child: const Text('Contact'),
-          ),
-          TextButton(
-            onPressed: () {
-              const ContactUsPage();
-            },
-            child: const Text('Document'),
-          ),
-          TextButton(
-            onPressed: () {},
-            child: const Text('Login/Register'),
-          ),
-          // ... other buttons
-        ],
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Contact information
+            const HomeAppBar(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -95,7 +64,8 @@ class ContactUsPage extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
-            const Text('If You Have Any Queries, Please Feel Free To Contact Us'),
+            const Text(
+                'If You Have Any Queries, Please Feel Free To Contact Us'),
             const SizedBox(height: 20),
             Form(
               child: Column(
@@ -114,7 +84,8 @@ class ContactUsPage extends StatelessWidget {
                   ),
                   Expanded(
                     child: TextFormField(
-                      decoration: const InputDecoration(labelText: 'Your Email'),
+                      decoration:
+                          const InputDecoration(labelText: 'Your Email'),
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Please enter your email address';

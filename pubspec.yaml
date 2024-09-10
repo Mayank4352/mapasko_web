@@ -33,6 +33,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   responsive_sizer:
   get:
+  firebase_core:
+  firebase_storage:
+  page_transition:
 
 dev_dependencies:
   flutter_test:
