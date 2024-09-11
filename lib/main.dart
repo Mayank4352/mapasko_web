@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:mapsko/calender/soc.dart';
+import 'package:mapsko/coming_soon_page.dart';
 import 'package:mapsko/contact/contact.dart';
 import 'package:mapsko/documents/document_page.dart';
 import 'package:mapsko/event/event.dart';
@@ -54,7 +55,6 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-
       case '/gallery':
         return PageTransition(
           child: const GalleryPage(),
@@ -78,7 +78,13 @@ class MyApp extends StatelessWidget {
         );
 
       default:
-        throw UnsupportedError('Unknown route: ${settings.name}');
+        return PageTransition(
+          child: ComingSoonPage(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      // throw UnsupportedError('Unknown route: ${settings.name}');
     }
   }
 
