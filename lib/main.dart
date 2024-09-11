@@ -1,10 +1,13 @@
+import 'package:calendar_view/calendar_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:mapsko/calender/soc.dart';
 import 'package:mapsko/contact/contact.dart';
 import 'package:mapsko/documents/document_page.dart';
 import 'package:mapsko/event/event.dart';
 import 'package:mapsko/firebase_options.dart';
+import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';
 import 'package:mapsko/team/team.dart';
 import 'package:mapsko/tenders/tender_page.dart';
@@ -51,16 +54,24 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      case '/tenders':
+
+      case '/gallery':
         return PageTransition(
-          child: const TenderPage(),
+          child: const GalleryPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
         );
-      case '/gallery':
+      case '/socal':
         return PageTransition(
-          child: const EventsPage(),
+          child: SocialCalendar(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/events':
+        return PageTransition(
+          child: EventCalendar(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
@@ -74,15 +85,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
-      return GetMaterialApp(
-        title: 'Flutter Demo',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+      return CalendarControllerProvider(
+        controller: EventController(),
+        child: GetMaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          home: const HomePage(),
+          onGenerateRoute: onGenerateRoute,
         ),
-        home: const HomePage(),
-        onGenerateRoute: onGenerateRoute,
       );
     });
   }

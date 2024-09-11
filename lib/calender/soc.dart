@@ -4,14 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class EventCalendar extends StatefulWidget {
-  const EventCalendar({Key? key}) : super(key: key);
+class SocialCalendar extends StatefulWidget {
+  const SocialCalendar({Key? key}) : super(key: key);
 
   @override
-  _EventCalendarState createState() => _EventCalendarState();
+  _SocialCalendarState createState() => _SocialCalendarState();
 }
 
-class _EventCalendarState extends State<EventCalendar> {
+class _SocialCalendarState extends State<SocialCalendar> {
   EventController _eventController = EventController();
   DateTime _selectedMonth = DateTime.now();
 
