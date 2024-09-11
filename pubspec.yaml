@@ -34,7 +34,7 @@ dependencies:
   responsive_sizer:
   get:
   firebase_core:
-  firebase_storage:
+  firebase_storage: ^12.3.0
   page_transition:
   google_fonts: 
   flutter_screenutil: 

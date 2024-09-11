@@ -60,4 +60,5 @@ class DefaultFirebaseOptions {
     authDomain: 'mapsko-royal-ville.firebaseapp.com',
     storageBucket: 'mapsko-royal-ville.appspot.com',
   );
+
 }
