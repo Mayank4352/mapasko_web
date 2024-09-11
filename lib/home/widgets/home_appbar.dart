@@ -21,19 +21,20 @@ class _HomeAppBarState extends State<HomeAppBar> {
           onPressed: () {
             Get.offAllNamed('/home');
           },
-          child: const Text('About us', style: TextStyle(color: Colors.black)),
+          child: const Text('Home', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
             Get.offAllNamed('/team');
           },
-          child: const Text('Our Team', style: TextStyle(color: Colors.black)),
+          child: const Text('About Us', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
             Get.offAllNamed('/contact');
           },
-          child: const Text('Contact', style: TextStyle(color: Colors.black)),
+          child:
+              const Text('Contact Us', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {

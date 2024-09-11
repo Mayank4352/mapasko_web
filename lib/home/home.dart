@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
-import 'package:mapsko/team/widgets/member_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,13 +8,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Map<String, String> imgPaths = {
-      "assets/sachdeva.png":
-          "Lt. Colonel Darshan Sachdeva (Veteran) \nVice President",
-      "assets/amandhull.png": "Er. Aman Dhull\nGeneral Secretary",
-      "assets/nikhildhawan.png": "Mr. Nikhil Dhawan\nJoint Secretary",
-      "assets/shavetagarg.png": "Mrs. Shaveta Garg\nTreasurer",
-    };
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -85,7 +77,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'MAPSKO CASA BELLA',
+                          'MAPSKO ROYALE VILLE',
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.bold,
@@ -94,14 +86,14 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(height: 1.h),
                         Text(
-                          'Mapsko Casa Bella is a luxury society with apartments and villas in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
+                          'Mapsko Royale Ville is a luxury society with apartments and villas in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
                           style: TextStyle(
                             fontSize: 10.sp,
                           ),
                         ),
                         SizedBox(height: 2.h),
                         Text(
-                          'Mapsko Casa Bella Owners Association',
+                          'Mapsko Royale Ville Owners Association',
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.bold,
@@ -109,36 +101,10 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(height: 1.h),
                         Text(
-                          'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Mapsko Casa Bella Association (MCBOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Casa Bella one of the better communities to live in New Gurgaon.',
+                          'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Mapsko Royale Ville Association (MCBOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Casa Bella one of the better communities to live in New Gurgaon.',
                           style: TextStyle(
                             fontSize: 10.sp,
                           ),
-                        ),
-                        SizedBox(height: 2.h),
-                        Row(
-                          children: [
-                            Icon(Icons.email,
-                                color: Colors.orange, size: 24.sp),
-                            SizedBox(width: 2.w),
-                            Text(
-                              'mcboa82@gmail.com',
-                              style: TextStyle(
-                                fontSize: 10.sp,
-                                color: Colors.blue,
-                              ),
-                            ),
-                            SizedBox(width: 5.w),
-                            Icon(Icons.phone,
-                                color: Colors.orange, size: 24.sp),
-                            SizedBox(width: 2.w),
-                            Text(
-                              '+91-9910261081',
-                              style: TextStyle(
-                                fontSize: 10.sp,
-                                color: Colors.blue,
-                              ),
-                            ),
-                          ],
                         ),
                       ],
                     ),
