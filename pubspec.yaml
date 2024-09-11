@@ -33,8 +33,11 @@ dependencies:
   cupertino_icons: ^1.0.8
   responsive_sizer:
   get:
+  firebase_core:
+  firebase_storage:
+  page_transition:
   google_fonts: 
-  flutter_screenutil: ^5.9.3
+  flutter_screenutil: 
 
 dev_dependencies:
   flutter_test:
