@@ -20,9 +20,10 @@ class ContactUsPage extends StatelessWidget {
               width: double.infinity,
               height: 88.h,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 20.h, right: 5.h, top: 5.h),
+                    // padding: EdgeInsets.only(left: 20.h, right: 5.h, top: 5.h),
                     child: Container(
                       color: const Color(0x0f757575),
                       height: 35.h,
@@ -57,7 +58,7 @@ class ContactUsPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 10.h, right: 5.h, top: 5.h),
+                    // padding: EdgeInsets.only(left: 10.h, right: 5.h, top: 5.h),
                     child: Container(
                       color: const Color(0x0f757575),
                       height: 35.h,
@@ -92,7 +93,7 @@ class ContactUsPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 5.h),
+                    // padding: EdgeInsets.only(left: 10.h, right: 15.h, top: 5.h),
                     child: Container(
                       color: const Color(0x0f757575),
                       height: 35.h,

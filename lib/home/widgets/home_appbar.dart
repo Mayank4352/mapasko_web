@@ -21,31 +21,58 @@ class _HomeAppBarState extends State<HomeAppBar> {
           onPressed: () {
             Get.offAllNamed('/home');
           },
-          child: const Text('Home'),
+          child: const Text('About us', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
             Get.offAllNamed('/team');
           },
-          child: const Text('Our Team'),
+          child: const Text('Our Team', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
             Get.offAllNamed('/contact');
           },
-          child: const Text('Contact'),
+          child: const Text('Contact', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
-            Get.offAllNamed('/documents');
+            Get.offAllNamed('/gallery');
           },
-          child: const Text('Documents'),
+          child: const Text('Gallery', style: TextStyle(color: Colors.black)),
         ),
         TextButton(
           onPressed: () {
-            Get.offAllNamed('/tenders');
+            Get.offAllNamed('/events');
           },
-          child: const Text('Tenders'),
+          child: const Text('Event Calendar',
+              style: TextStyle(color: Colors.black)),
+        ),
+        TextButton(
+          onPressed: () {
+            Get.offAllNamed('/notices');
+          },
+          child: const Text('Notices', style: TextStyle(color: Colors.black)),
+        ),
+        TextButton(
+          onPressed: () {
+            Get.offAllNamed('/sop');
+          },
+          child: const Text('SOP', style: TextStyle(color: Colors.black)),
+        ),
+        TextButton(
+          onPressed: () {
+            Get.offAllNamed('/socal');
+          },
+          child: const Text('Social Calendar',
+              style: TextStyle(color: Colors.black)),
+        ),
+        TextButton(
+          onPressed: () {
+            Get.offAllNamed('/suggestions');
+          },
+          child:
+              const Text('Suggestions', style: TextStyle(color: Colors.black)),
         ),
       ],
     );

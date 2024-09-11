@@ -51,13 +51,6 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      // case '/Spectrum':
-      //   return PageTransition(
-      //     child: const SpectrumScreen(),
-      //     duration: const Duration(milliseconds: 300),
-      //     type: PageTransitionType.fade,
-      //     settings: settings,
-      //   );
 
       default:
         throw UnsupportedError('Unknown route: ${settings.name}');
@@ -76,11 +69,6 @@ class MyApp extends StatelessWidget {
         ),
         home: const HomePage(),
         onGenerateRoute: onGenerateRoute,
-        // routes: {
-        //   '/home': (context) => const HomePage(),
-        //   '/team': (context) => const TeamPage(),
-        //   '/contact': (context) => const ContactUsPage(),
-        // },
       );
     });
   }

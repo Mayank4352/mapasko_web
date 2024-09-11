@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
+import 'package:mapsko/team/widgets/member_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,6 +9,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Map<String, String> imgPaths = {
+      "assets/sachdeva.png":
+          "Lt. Colonel Darshan Sachdeva (Veteran) \nVice President",
+      "assets/amandhull.png": "Er. Aman Dhull\nGeneral Secretary",
+      "assets/nikhildhawan.png": "Mr. Nikhil Dhawan\nJoint Secretary",
+      "assets/shavetagarg.png": "Mrs. Shaveta Garg\nTreasurer",
+    };
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -36,52 +44,45 @@ class HomePage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 30.sp,
                         fontWeight: FontWeight.w900,
-                        color: Colors.white,
+                        color: Colors.red[900],
                       ),
                     ),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 20.h),
             Container(
+              height: 100.h,
               padding: EdgeInsets.all(12.h),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 1,
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            left: 3.w,
-                            right: 1.w,
-                          ),
-                          child: Image.asset(
-                            'assets/Mapsko-Royale-Ville.jpg',
-                            fit: BoxFit.cover,
-                            height: 20.h,
-                            width: 10.w,
-                          ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.only(
-                              left: 0.3.w, right: 2.w, top: 5.h),
-                          child: Image.asset(
-                            'assets/Mapsko-Royale-Ville.jpg',
-                            fit: BoxFit.cover,
-                            height: 20.h,
-                            width: 10.w,
-                          ),
-                        ),
-                      ],
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: 3.w,
+                      right: 1.w,
+                    ),
+                    child: Image.asset(
+                      'assets/Mapsko-Royale-Ville.jpg',
+                      fit: BoxFit.cover,
+                      height: 20.h,
+                      width: 10.w,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 0.3.w, right: 2.w, top: 5.h),
+                    child: Image.asset(
+                      'assets/Mapsko-Royale-Ville.jpg',
+                      fit: BoxFit.cover,
+                      height: 20.h,
+                      width: 10.w,
                     ),
                   ),
                   Expanded(
                     flex: 2,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'MAPSKO CASA BELLA',
