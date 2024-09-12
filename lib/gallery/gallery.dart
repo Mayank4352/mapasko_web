@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
+import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GalleryPage extends StatefulWidget {
@@ -46,10 +47,17 @@ class _GalleryPageState extends State<GalleryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const HomePageDrawer(),
       body: Column(
         children: [
-          const HomeAppBar(),
+          HomeAppBar(
+            onPressedMobile: () {
+              scaffoldKey.currentState!.openDrawer();
+            },
+          ),
           SizedBox(
             height: 90.h,
             child: const Center(
