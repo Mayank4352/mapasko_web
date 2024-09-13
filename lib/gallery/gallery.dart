@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_infinite_marquee/flutter_infinite_marquee.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
-import 'package:marquee_list/marquee_list.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GalleryPage extends StatefulWidget {

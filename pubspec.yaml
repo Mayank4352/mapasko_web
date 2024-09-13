@@ -41,7 +41,7 @@ dependencies:
   google_fonts: 
   flutter_screenutil: 
   calendar_view:
-  marquee_list: 
+
 
 dev_dependencies:
   flutter_test:
