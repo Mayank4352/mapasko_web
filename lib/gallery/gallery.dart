@@ -1,13 +1,11 @@
 import 'dart:developer';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_infinite_marquee/flutter_infinite_marquee.dart';
+import 'package:mapsko/gallery/widgets/gallery_marquee.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
 
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GalleryPage extends StatefulWidget {
   const GalleryPage({super.key});
@@ -18,35 +16,35 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   final storageRef = FirebaseStorage.instance.ref();
-  // Map<String, List<String>> galleryImages = {};
-  List<String> janmashthmi = [];
-  List<String> teej = [];
-  List<String> plantation = [];
-  List<String> cycle = [];
+  Map<String, List<String>> galleryImages = {};
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       var listResult = await storageRef.child('janmashtmi').listAll();
+      galleryImages['janmashtmi'] = [];
       for (var item in listResult.items) {
         String downloadURL = await item.getDownloadURL();
-        janmashthmi.add(downloadURL);
+        galleryImages['janmashtmi']!.add(downloadURL);
       }
       listResult = await storageRef.child('teej').listAll();
+      galleryImages['teej'] = [];
       for (var item in listResult.items) {
         String downloadURL = await item.getDownloadURL();
-        teej.add(downloadURL);
+        galleryImages['teej']!.add(downloadURL);
       }
       listResult = await storageRef.child('plantation').listAll();
+      galleryImages['plantation'] = [];
       for (var item in listResult.items) {
         String downloadURL = await item.getDownloadURL();
-        plantation.add(downloadURL);
+        galleryImages['plantation']!.add(downloadURL);
       }
       listResult = await storageRef.child('cycle').listAll();
+      galleryImages['cycle'] = [];
       for (var item in listResult.items) {
         String downloadURL = await item.getDownloadURL();
-        cycle.add(downloadURL);
+        galleryImages['cycle']!.add(downloadURL);
       }
       setState(() {
         log('Loaded');
@@ -68,86 +66,16 @@ class _GalleryPageState extends State<GalleryPage> {
                 scaffoldKey.currentState!.openDrawer();
               },
             ),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: janmashthmi[index % janmashthmi.length],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
+            GalleryMarquee(
+              galleryImages: galleryImages,
+              eventName: 'janmashtmi',
             ),
-            Text("Janmashtmi"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: teej[index % teej.length],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
+            GalleryMarquee(galleryImages: galleryImages, eventName: 'teej'),
+            GalleryMarquee(galleryImages: galleryImages, eventName: 'cycle'),
+            GalleryMarquee(
+              galleryImages: galleryImages,
+              eventName: 'plantation',
             ),
-            Text("Teej"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: cycle[index % cycle.length],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            Text("Cycle"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: plantation[index % plantation.length],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            Text("Plantation"),
           ],
         ),
       ),
