@@ -6,12 +6,11 @@ import 'package:mapsko/calender/soc.dart';
 import 'package:mapsko/coming_soon_page.dart';
 import 'package:mapsko/contact/contact.dart';
 import 'package:mapsko/documents/document_page.dart';
-import 'package:mapsko/event/event.dart';
+
 import 'package:mapsko/firebase_options.dart';
 import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';
 import 'package:mapsko/team/team.dart';
-import 'package:mapsko/tenders/tender_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -64,14 +63,14 @@ class MyApp extends StatelessWidget {
         );
       case '/socal':
         return PageTransition(
-          child: SocialCalendar(),
+          child: const CalendarPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
         );
-      case '/events':
+      case '/calendar':
         return PageTransition(
-          child: EventCalendar(),
+          child: const CalendarPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
@@ -79,7 +78,7 @@ class MyApp extends StatelessWidget {
 
       default:
         return PageTransition(
-          child: ComingSoonPage(),
+          child: const ComingSoonPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,

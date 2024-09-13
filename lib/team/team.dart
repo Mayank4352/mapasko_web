@@ -1,33 +1,50 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
+import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:mapsko/team/widgets/member_widget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class TeamPage extends StatelessWidget {
+class TeamPage extends StatefulWidget {
   const TeamPage({super.key});
 
   @override
+  State<TeamPage> createState() => _TeamPageState();
+}
+
+class _TeamPageState extends State<TeamPage> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  Map<String, String> rwaImgPaths = {
+    'assets/pramod.png': 'Mr. Pramod Khullar\nPresident',
+    "assets/sachdeva.png":
+        "Lt. Colonel Darshan Sachdeva (Veteran) \nVice President",
+    "assets/amandhull.png": "Er. Aman Dhull\nGeneral Secretary",
+    "assets/nikhildhawan.png": "Mr. Nikhil Dhawan\nJoint Secretary",
+    "assets/shavetagarg.png": "Mrs. Shaveta Garg\nTreasurer",
+  };
+  Map<String, String> abanteImgPaths = {
+    "assets/mosam.jpg": "Mr. Mosam Kumar\nOperations Manager",
+    "assets/amitkr.png": "Mr. Amit Kumar Yadav\nEstate Manager",
+    "assets/sandeep.jpg": "Mr. Sandeep Yadav\nTechnical Manager",
+    "assets/pooja.jpg": "Ms. Pooja Gupta\nHelp Desk"
+  };
+
+  @override
   Widget build(BuildContext context) {
-    Map<String, String> rwaImgPaths = {
-      'assets/pramod.png': 'Mr. Pramod Khullar\nPresident',
-      "assets/sachdeva.png":
-          "Lt. Colonel Darshan Sachdeva (Veteran) \nVice President",
-      "assets/amandhull.png": "Er. Aman Dhull\nGeneral Secretary",
-      "assets/nikhildhawan.png": "Mr. Nikhil Dhawan\nJoint Secretary",
-      "assets/shavetagarg.png": "Mrs. Shaveta Garg\nTreasurer",
-    };
-    Map<String, String> abanteImgPaths = {
-      "assets/mosam.jpg": "Mr. Mosam Kumar\nOperations Manager",
-      "assets/amitkr.png": "Mr. Amit Kumar Yadav\nEstate Manager",
-      "assets/sandeep.jpg": "Mr. Sandeep Yadav\nTechnical Manager",
-      "assets/pooja.jpg": "Ms. Pooja Gupta\nHelp Desk"
-    };
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const HomeAppBar(),
+            HomeAppBar(
+              onPressedMobile: () {
+                log(scaffoldKey.currentState.toString());
+                scaffoldKey.currentState!.openDrawer();
+              },
+            ),
             const Text(
               "RWA TEAM",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),

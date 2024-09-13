@@ -34,11 +34,14 @@ dependencies:
   responsive_sizer:
   get:
   firebase_core:
-  firebase_storage: ^12.3.0
+  firebase_storage:
+  cached_network_image: 
+  flutter_infinite_marquee: 
   page_transition:
   google_fonts: 
   flutter_screenutil: 
-  calendar_view: ^1.2.0
+  calendar_view:
+  marquee_list: 
 
 dev_dependencies:
   flutter_test:

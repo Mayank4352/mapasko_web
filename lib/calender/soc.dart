@@ -1,17 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
+import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class SocialCalendar extends StatefulWidget {
-  const SocialCalendar({Key? key}) : super(key: key);
-
+class CalendarPage extends StatefulWidget {
+  const CalendarPage({super.key});
   @override
-  _SocialCalendarState createState() => _SocialCalendarState();
+  State<CalendarPage> createState() => _CalendarPageState();
 }
 
-class _SocialCalendarState extends State<SocialCalendar> {
+class _CalendarPageState extends State<CalendarPage> {
   EventController _eventController = EventController();
   DateTime _selectedMonth = DateTime.now();
 
@@ -23,7 +25,6 @@ class _SocialCalendarState extends State<SocialCalendar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _eventController.add(CalendarEventData(
@@ -34,10 +35,17 @@ class _SocialCalendarState extends State<SocialCalendar> {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const HomePageDrawer(),
       body: Column(
         children: [
-          HomeAppBar(),
+          HomeAppBar(
+            onPressedMobile: () {
+              scaffoldKey.currentState!.openDrawer();
+            },
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
@@ -108,10 +116,10 @@ class _SocialCalendarState extends State<SocialCalendar> {
                           _selectedMonth, // Updated when dropdown changes
                       cellAspectRatio: 1,
                       onPageChange: (date, pageIndex) =>
-                          print("$date, $pageIndex"),
+                          log("$date, $pageIndex"),
                       onCellTap: (events, date) {
                         // Callback when user taps on a cell
-                        print(events);
+                        log(events.toString());
                       },
                       startDay:
                           WeekDays.sunday, // Change the first day of the week
@@ -121,9 +129,10 @@ class _SocialCalendarState extends State<SocialCalendar> {
                             "\n\n${date.day}/${date.month}/${date.year}";
                         eventDetails += "\n\n${event.description}";
                       }),
-                      onEventDoubleTap: (events, date) => print(events),
-                      onEventLongTap: (event, date) => print(event),
-                      onDateLongPress: (date) => print(date),
+                      onEventDoubleTap: (events, date) =>
+                          log(events.toString()),
+                      onEventLongTap: (event, date) => log(event.toString()),
+                      onDateLongPress: (date) => log(date.toString()),
                       headerBuilder:
                           MonthHeader.hidden, // To hide the month header
                       showWeekTileBorder: true,

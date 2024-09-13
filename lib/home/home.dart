@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
+import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,13 +9,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: scaffoldKey,
+      drawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const HomeAppBar(),
+            HomeAppBar(
+              onPressedMobile: () {
+                scaffoldKey.currentState!.openDrawer();
+              },
+            ),
             Stack(
               children: [
                 SizedBox(
