@@ -18,6 +18,7 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   final storageRef = FirebaseStorage.instance.ref();
+  // Map<String, List<String>> galleryImages = {};
   List<String> janmashthmi = [];
   List<String> teej = [];
   List<String> plantation = [];
@@ -76,7 +77,7 @@ class _GalleryPageState extends State<GalleryPage> {
                     padding: EdgeInsets.all(8.0.sp),
                     child: CachedNetworkImage(
                       fit: BoxFit.contain,
-                      imageUrl: cycle[index % cycle.length],
+                      imageUrl: janmashthmi[index % janmashthmi.length],
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
@@ -86,6 +87,27 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
+            Text("Janmashtmi"),
+            SizedBox(
+              height: 30.h,
+              child: InfiniteMarquee(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: EdgeInsets.all(8.0.sp),
+                    child: CachedNetworkImage(
+                      fit: BoxFit.contain,
+                      imageUrl: teej[index % teej.length],
+                      placeholder: (context, url) =>
+                          Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) =>
+                          Text(error.toString()),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Text("Teej"),
             SizedBox(
               height: 30.h,
               child: InfiniteMarquee(
@@ -105,6 +127,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
+            Text("Cycle"),
             SizedBox(
               height: 30.h,
               child: InfiniteMarquee(
@@ -114,7 +137,7 @@ class _GalleryPageState extends State<GalleryPage> {
                     padding: EdgeInsets.all(8.0.sp),
                     child: CachedNetworkImage(
                       fit: BoxFit.contain,
-                      imageUrl: cycle[index % cycle.length],
+                      imageUrl: plantation[index % plantation.length],
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
@@ -124,25 +147,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: cycle[index % cycle.length],
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
+            Text("Plantation"),
           ],
         ),
       ),
