@@ -2,7 +2,7 @@ import 'package:calendar_view/calendar_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:mapsko/calender/soc.dart';
+import 'package:mapsko/calender/calendar.dart';
 import 'package:mapsko/coming_soon_page.dart';
 import 'package:mapsko/contact/contact.dart';
 import 'package:mapsko/documents/document_page.dart';
