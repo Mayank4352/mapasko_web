@@ -6,17 +6,17 @@ import 'package:mapsko/calender/calendar.dart';
 import 'package:mapsko/coming_soon_page.dart';
 import 'package:mapsko/contact/contact.dart';
 import 'package:mapsko/documents/document_page.dart';
-
 import 'package:mapsko/firebase_options.dart';
 import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';
+import 'package:mapsko/suggestions/suggestions.dart';
 import 'package:mapsko/team/team.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
@@ -75,7 +75,13 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-
+      case '/suggestions':
+        return PageTransition(
+          child: SuggestionsPage(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
       default:
         return PageTransition(
           child: const ComingSoonPage(),
@@ -83,7 +89,6 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      // throw UnsupportedError('Unknown route: ${settings.name}');
     }
   }
 

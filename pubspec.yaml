@@ -42,6 +42,8 @@ dependencies:
   flutter_screenutil: 
   calendar_view:
   cloud_firestore:
+  fluttertoast:
+
 
 dev_dependencies:
   flutter_test:
