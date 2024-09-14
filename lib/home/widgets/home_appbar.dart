@@ -76,8 +76,9 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.transparent.withOpacity(0.2),
       automaticallyImplyLeading: false,
-      shadowColor: const Color(0xffff5e14),
+      shadowColor: Colors.transparent,
       title: const Text('Mapsko Royale Ville'),
       actions: 100.w < 900 ? mobile : desktop,
     );

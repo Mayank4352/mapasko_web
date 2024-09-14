@@ -35,14 +35,14 @@ class _TeamPageState extends State<TeamPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer: const HomePageDrawer(),
+      endDrawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             HomeAppBar(
               onPressedMobile: () {
                 log(scaffoldKey.currentState.toString());
-                scaffoldKey.currentState!.openDrawer();
+                scaffoldKey.currentState!.openEndDrawer();
               },
             ),
             const Text(
@@ -51,27 +51,36 @@ class _TeamPageState extends State<TeamPage> {
             ),
             Padding(
               padding: EdgeInsets.all(20.sp),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: 40.h,
-
-                  crossAxisCount: 4, // Number of columns in the grid
-                  crossAxisSpacing: 10.sp, // Horizontal space between items
-                  mainAxisSpacing: 10.sp, // Vertical space between items
-                  //  childAspectRatio: 0.7326,
-                  // Aspect ratio of items (width / height)
-                ),
-                itemCount: rwaImgPaths.length,
-                itemBuilder: (context, index) {
-                  return MemberWidget(
-                    imgPaths: rwaImgPaths,
-                    index: index,
-                  );
-                },
-                padding: const EdgeInsets.all(10),
-              ),
+              child: 100.w < 900
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(top: 10.sp, bottom: 10.sp),
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: rwaImgPaths.length,
+                      itemBuilder: (context, index) {
+                        return MemberWidget(
+                          imgPaths: rwaImgPaths,
+                          index: index,
+                        );
+                      })
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 40.h,
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 10.sp,
+                        mainAxisSpacing: 10.sp,
+                      ),
+                      itemCount: rwaImgPaths.length,
+                      itemBuilder: (context, index) {
+                        return MemberWidget(
+                          imgPaths: rwaImgPaths,
+                          index: index,
+                        );
+                      },
+                      padding: const EdgeInsets.all(10),
+                    ),
             ),
             const Text(
               "ABANTE TEAM",
@@ -79,27 +88,40 @@ class _TeamPageState extends State<TeamPage> {
             ),
             Padding(
               padding: EdgeInsets.all(20.sp),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: 40.h,
+              child: 100.w < 900
+                  ? ListView.builder(
+                      shrinkWrap: true,
+                      padding: EdgeInsets.only(top: 10.sp, bottom: 10.sp),
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: abanteImgPaths.length,
+                      itemBuilder: (context, index) {
+                        return MemberWidget(
+                          imgPaths: abanteImgPaths,
+                          index: index,
+                        );
+                      })
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisExtent: 40.h,
 
-                  crossAxisCount: 4, // Number of columns in the grid
-                  crossAxisSpacing: 10.sp, // Horizontal space between items
-                  mainAxisSpacing: 10.sp, // Vertical space between items
-                  //  childAspectRatio: 0.7326,
-                  // Aspect ratio of items (width / height)
-                ),
-                itemCount: abanteImgPaths.length,
-                itemBuilder: (context, index) {
-                  return MemberWidget(
-                    imgPaths: abanteImgPaths,
-                    index: index,
-                  );
-                },
-                padding: const EdgeInsets.all(10),
-              ),
+                        crossAxisCount: 4, // Number of columns in the grid
+                        crossAxisSpacing:
+                            10.sp, // Horizontal space between items
+                        mainAxisSpacing: 10.sp, // Vertical space between items
+                        //  childAspectRatio: 0.7326,
+                        // Aspect ratio of items (width / height)
+                      ),
+                      itemCount: abanteImgPaths.length,
+                      itemBuilder: (context, index) {
+                        return MemberWidget(
+                          imgPaths: abanteImgPaths,
+                          index: index,
+                        );
+                      },
+                      padding: const EdgeInsets.all(10),
+                    ),
             ),
             const Footer(),
           ],

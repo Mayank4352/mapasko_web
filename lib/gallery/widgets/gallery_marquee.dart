@@ -34,8 +34,10 @@ class GalleryMarquee extends StatelessWidget {
                         fit: BoxFit.contain,
                         imageUrl: galleryImages[eventName]![
                             index % galleryImages[eventName]!.length],
-                        placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
+                        progressIndicatorBuilder: (context, url, progress) =>
+                            Center(
+                                child: CircularProgressIndicator(
+                                    value: progress.progress)),
                         errorWidget: (context, url, error) =>
                             Text(error.toString()),
                       ),
@@ -43,7 +45,7 @@ class GalleryMarquee extends StatelessWidget {
                   },
                 ),
               ),
-              Text(eventName.toUpperCase()),
+              Text(eventName, style: TextStyle(fontSize: 11.sp)),
             ],
           );
         }),

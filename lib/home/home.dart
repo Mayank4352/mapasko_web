@@ -12,17 +12,12 @@ class HomePage extends StatelessWidget {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
-      drawer: const HomePageDrawer(),
+      endDrawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            HomeAppBar(
-              onPressedMobile: () {
-                scaffoldKey.currentState!.openDrawer();
-              },
-            ),
             Stack(
               children: [
                 SizedBox(
@@ -33,21 +28,30 @@ class HomePage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
-                  height: 100.h,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'MAPSKO ROYAL VILLE',
-                      overflow: TextOverflow.visible,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.red[900],
+                Column(
+                  children: [
+                    HomeAppBar(
+                      onPressedMobile: () {
+                        scaffoldKey.currentState!.openEndDrawer();
+                      },
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          'MAPSKO ROYAL VILLE',
+                          overflow: TextOverflow.visible,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 30.sp,
+                            fontWeight: FontWeight.w900,
+                            color: Colors.red[900],
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ],
             ),
