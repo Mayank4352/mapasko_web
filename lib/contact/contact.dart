@@ -38,7 +38,7 @@ class ContactUsPage extends StatelessWidget {
     ];
     return Scaffold(
       key: scaffoldKey,
-      drawer: const HomePageDrawer(),
+      endDrawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class ContactUsPage extends StatelessWidget {
           children: [
             HomeAppBar(
               onPressedMobile: () {
-                scaffoldKey.currentState!.openDrawer();
+                scaffoldKey.currentState!.openEndDrawer();
               },
             ),
             100.w < 900

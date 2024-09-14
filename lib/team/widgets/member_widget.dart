@@ -31,7 +31,7 @@ class MemberWidget extends StatelessWidget {
                 child: Center(
                   child: CircleAvatar(
                     backgroundImage: AssetImage(imgPaths.keys.elementAt(index)),
-                    maxRadius: 5.w,
+                    maxRadius: 100.w < 900 ? 20.w : 5.w,
                   ),
                 ),
               ),
@@ -43,6 +43,8 @@ class MemberWidget extends StatelessWidget {
                   Text(
                     imgPaths.values.elementAt(index),
                     textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w900),
                   ),
                 ],
               ),

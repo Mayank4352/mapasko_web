@@ -9,7 +9,7 @@ import 'package:mapsko/documents/document_page.dart';
 import 'package:mapsko/firebase_options.dart';
 import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';
-import 'package:mapsko/suggetions/suggestions.dart';
+import 'package:mapsko/suggestions/suggestions.dart';
 import 'package:mapsko/team/team.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

@@ -11,12 +11,12 @@ class ComingSoonPage extends StatelessWidget {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
-      drawer: const HomePageDrawer(),
+      endDrawer: const HomePageDrawer(),
       body: Column(
         children: [
           HomeAppBar(
             onPressedMobile: () {
-              scaffoldKey.currentState!.openDrawer();
+              scaffoldKey.currentState!.openEndDrawer();
             },
           ),
           SizedBox(

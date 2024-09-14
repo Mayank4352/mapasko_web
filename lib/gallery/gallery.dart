@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_infinite_marquee/flutter_infinite_marquee.dart';
+import 'package:mapsko/calender/calendar.dart';
+import 'package:mapsko/gallery/widgets/gallery_marquee.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
-
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GalleryPage extends StatefulWidget {
@@ -18,136 +18,70 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   final storageRef = FirebaseStorage.instance.ref();
-  // Map<String, List<String>> galleryImages = {};
-  List<String> janmashthmi = [];
-  List<String> teej = [];
-  List<String> plantation = [];
-  List<String> cycle = [];
+  Map<String, List<String>> galleryImages = {};
+  bool isLoading = true;
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+  final dbRef =
+      FirebaseFirestore.instance.collection('events').doc('eventList');
+  Map<String, dynamic> events = {};
+
+  List<Widget> generateMarquees() {
+    List<Widget> marquees = [];
+    for (var event in galleryImages.keys) {
+      marquees.add(GalleryMarquee(
+        galleryImages: galleryImages,
+        eventName: event,
+      ));
+    }
+    return marquees;
+  }
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      var listResult = await storageRef.child('janmashtmi').listAll();
-      for (var item in listResult.items) {
-        String downloadURL = await item.getDownloadURL();
-        janmashthmi.add(downloadURL);
-      }
-      listResult = await storageRef.child('teej').listAll();
-      for (var item in listResult.items) {
-        String downloadURL = await item.getDownloadURL();
-        teej.add(downloadURL);
-      }
-      listResult = await storageRef.child('plantation').listAll();
-      for (var item in listResult.items) {
-        String downloadURL = await item.getDownloadURL();
-        plantation.add(downloadURL);
-      }
-      listResult = await storageRef.child('cycle').listAll();
-      for (var item in listResult.items) {
-        String downloadURL = await item.getDownloadURL();
-        cycle.add(downloadURL);
+      events = await dbRef
+          .get()
+          .then((value) => value.data() as Map<String, dynamic>);
+      events = events['events'];
+      for (var event in events.keys) {
+        log(event);
+        galleryImages[events[event]] = [];
+        var listResult = await storageRef.child(event).listAll();
+        for (var item in listResult.items) {
+          String downloadURL = await item.getDownloadURL();
+          galleryImages[events[event]]!.add(downloadURL);
+        }
       }
       setState(() {
         log('Loaded');
+        isLoading = false;
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
-      drawer: const HomePageDrawer(),
+      endDrawer: const HomePageDrawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
             HomeAppBar(
               onPressedMobile: () {
-                scaffoldKey.currentState!.openDrawer();
+                scaffoldKey.currentState!.openEndDrawer();
               },
             ),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: janmashthmi[index % janmashthmi.length],
-                      placeholder: (context, url) =>
-                          const Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const Text("Janmashtmi"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: teej[index % teej.length],
-                      placeholder: (context, url) =>
-                          const Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const Text("Teej"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: cycle[index % cycle.length],
-                      placeholder: (context, url) =>
-                          const Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const Text("Cycle"),
-            SizedBox(
-              height: 30.h,
-              child: InfiniteMarquee(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: EdgeInsets.all(8.0.sp),
-                    child: CachedNetworkImage(
-                      fit: BoxFit.contain,
-                      imageUrl: plantation[index % plantation.length],
-                      placeholder: (context, url) =>
-                          const Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) =>
-                          Text(error.toString()),
-                    ),
-                  );
-                },
-              ),
-            ),
-            const Text("Plantation"),
+            if (isLoading)
+              SizedBox(
+                height: 90.h,
+                child: const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              )
+            else
+              ...generateMarquees(),
           ],
         ),
       ),
