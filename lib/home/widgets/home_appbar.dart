@@ -76,10 +76,15 @@ class _HomeAppBarState extends State<HomeAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      toolbarHeight: 7.h,
       backgroundColor: Colors.transparent.withOpacity(0.2),
       automaticallyImplyLeading: false,
       shadowColor: Colors.transparent,
-      title: const Text('Mapsko Royale Ville'),
+      title: Image.asset(
+        'assets/logo.png',
+        height: 7.h,
+        fit: BoxFit.contain,
+      ),
       actions: 100.w < 900 ? mobile : desktop,
     );
   }

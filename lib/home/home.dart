@@ -55,74 +55,94 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              height: 100.h,
-              padding: EdgeInsets.all(12.h),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: 3.w,
-                      right: 1.w,
-                    ),
-                    child: Image.asset(
-                      'assets/Mapsko-Royale-Ville.jpg',
-                      fit: BoxFit.cover,
-                      height: 20.h,
-                      width: 10.w,
-                    ),
+            Stack(
+              children: [
+                SizedBox(
+                  height: 100.h,
+                  width: double.infinity,
+                  child: Image.asset(
+                    'assets/mapsko-royal-ville-top2.jpg',
+                    fit: BoxFit.cover,
                   ),
-                  Container(
-                    padding: EdgeInsets.only(left: 0.3.w, right: 2.w, top: 5.h),
-                    child: Image.asset(
-                      'assets/Mapsko-Royale-Ville.jpg',
-                      fit: BoxFit.cover,
-                      height: 20.h,
-                      width: 10.w,
-                    ),
+                ),
+                Container(
+                  height: 100.h,
+                  padding: EdgeInsets.all(12.h),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(
+                          left: 3.w,
+                          right: 1.w,
+                        ),
+                        child: Image.asset(
+                          'assets/royal-ville-garden-area.jpg',
+                          fit: BoxFit.cover,
+                          height: 30.h,
+                          width: 15.w,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                            left: 0.3.w, right: 1.5.w, top: 5.h),
+                        child: Image.asset(
+                          'assets/royal-ville-swimming-pool.jpg',
+                          fit: BoxFit.cover,
+                          height: 30.h,
+                          width: 15.w,
+                        ),
+                      ),
+                      Expanded(
+                        flex: 2,
+                        child: Container(
+                          color: Colors.white,
+                          height: 30.h,
+                          width: 40.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'MAPSKO ROYALE VILLE',
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.orange,
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Text(
+                                'Mapsko Royale Ville is a luxury society with apartments and villas in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
+                                style: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 2.h),
+                              Text(
+                                'Mapsko Royale Ville Owners Association',
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 1.h),
+                              Text(
+                                'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Mapsko Royale Ville Association (MCBOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Casa Bella one of the better communities to live in New Gurgaon.',
+                                style: TextStyle(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'MAPSKO ROYALE VILLE',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.orange,
-                          ),
-                        ),
-                        SizedBox(height: 1.h),
-                        Text(
-                          'Mapsko Royale Ville is a luxury society with apartments and villas in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                          ),
-                        ),
-                        SizedBox(height: 2.h),
-                        Text(
-                          'Mapsko Royale Ville Owners Association',
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 1.h),
-                        Text(
-                          'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Mapsko Royale Ville Association (MCBOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Casa Bella one of the better communities to live in New Gurgaon.',
-                          style: TextStyle(
-                            fontSize: 10.sp,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             const Footer(),
           ],

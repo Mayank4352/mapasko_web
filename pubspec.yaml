@@ -43,6 +43,7 @@ dependencies:
   calendar_view:
   cloud_firestore:
   fluttertoast:
+  flutter_pdfview: ^1.3.2
 
 
 dev_dependencies:

@@ -36,36 +36,51 @@ class ContactUsPage extends StatelessWidget {
           subHeading:
               "Total Flats: 486\nTotal Sqft. Area: 10,90,802 Sq ft\nOccupied Flats: 434\nOwners: 251\nTenants: 183")
     ];
+
     return Scaffold(
       key: scaffoldKey,
       endDrawer: const HomePageDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            HomeAppBar(
-              onPressedMobile: () {
-                scaffoldKey.currentState!.openEndDrawer();
-              },
+      body: Stack(
+        children: [
+          // Background image
+          SizedBox(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image.asset(
+              'assets/mapsko royal ville garden 2.jpg', // Your background image
+              fit: BoxFit.cover,
             ),
-            100.w < 900
-                ? SizedBox(
-                    width: double.infinity,
-                    child: Column(
-                      children: details,
-                    ),
-                  )
-                : SizedBox(
-                    width: double.infinity,
-                    height: 88.h,
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: details),
-                  ),
-            const Footer(),
-          ],
-        ),
+          ),
+          SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                HomeAppBar(
+                  onPressedMobile: () {
+                    scaffoldKey.currentState!.openEndDrawer();
+                  },
+                ),
+                100.w < 900
+                    ? SizedBox(
+                        width: double.infinity,
+                        child: Column(
+                          children: details,
+                        ),
+                      )
+                    : SizedBox(
+                        width: double.infinity,
+                        height: 88.h,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: details,
+                        ),
+                      ),
+                const Footer(),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

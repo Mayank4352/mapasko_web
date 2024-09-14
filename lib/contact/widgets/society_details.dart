@@ -20,7 +20,7 @@ class DetailsWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 8.0.sp, bottom: 8.0.sp),
       child: Container(
-        color: const Color(0x0f757575),
+        color: Colors.white,
         height: 35.h,
         width: 100.w < 900 ? 70.w : 20.w,
         child: Column(
