@@ -41,6 +41,8 @@ dependencies:
   google_fonts: 
   flutter_screenutil: 
   calendar_view:
+  cloud_firestore: ^5.4.1
+  fluttertoast: ^8.2.8
 
 
 dev_dependencies:

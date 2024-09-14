@@ -79,7 +79,7 @@ class _GalleryPageState extends State<GalleryPage> {
                       fit: BoxFit.contain,
                       imageUrl: janmashthmi[index % janmashthmi.length],
                       placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                          const Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Text(error.toString()),
                     ),
@@ -87,7 +87,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
-            Text("Janmashtmi"),
+            const Text("Janmashtmi"),
             SizedBox(
               height: 30.h,
               child: InfiniteMarquee(
@@ -99,7 +99,7 @@ class _GalleryPageState extends State<GalleryPage> {
                       fit: BoxFit.contain,
                       imageUrl: teej[index % teej.length],
                       placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                          const Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Text(error.toString()),
                     ),
@@ -107,7 +107,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
-            Text("Teej"),
+            const Text("Teej"),
             SizedBox(
               height: 30.h,
               child: InfiniteMarquee(
@@ -119,7 +119,7 @@ class _GalleryPageState extends State<GalleryPage> {
                       fit: BoxFit.contain,
                       imageUrl: cycle[index % cycle.length],
                       placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                          const Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Text(error.toString()),
                     ),
@@ -127,7 +127,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
-            Text("Cycle"),
+            const Text("Cycle"),
             SizedBox(
               height: 30.h,
               child: InfiniteMarquee(
@@ -139,7 +139,7 @@ class _GalleryPageState extends State<GalleryPage> {
                       fit: BoxFit.contain,
                       imageUrl: plantation[index % plantation.length],
                       placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                          const Center(child: CircularProgressIndicator()),
                       errorWidget: (context, url, error) =>
                           Text(error.toString()),
                     ),
@@ -147,7 +147,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 },
               ),
             ),
-            Text("Plantation"),
+            const Text("Plantation"),
           ],
         ),
       ),
