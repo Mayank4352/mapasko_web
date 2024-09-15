@@ -17,7 +17,7 @@ class GalleryMarquee extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border.all(color: Colors.black),
             borderRadius: BorderRadius.circular(10.sp),
-            color: Colors.lightBlue),
+            color: Colors.lightBlue.withOpacity(0.2)),
         padding: EdgeInsets.all(8.0.sp),
         child: LayoutBuilder(builder: (context, constraints) {
           return Column(

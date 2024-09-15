@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      case '/documents':
+      case '/sop':
         return PageTransition(
           child: const DocumentPage(),
           duration: const Duration(milliseconds: 300),
@@ -61,13 +61,6 @@ class MyApp extends StatelessWidget {
           type: PageTransitionType.fade,
           settings: settings,
         );
-      case '/socal':
-        return PageTransition(
-          child: const CalendarPage(),
-          duration: const Duration(milliseconds: 300),
-          type: PageTransitionType.fade,
-          settings: settings,
-        );
       case '/calendar':
         return PageTransition(
           child: const CalendarPage(),
@@ -77,7 +70,7 @@ class MyApp extends StatelessWidget {
         );
       case '/suggestions':
         return PageTransition(
-          child: SuggestionsPage(),
+          child: const SuggestionsPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,

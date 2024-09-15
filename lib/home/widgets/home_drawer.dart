@@ -15,11 +15,14 @@ class _HomPageeDrawerState extends State<HomePageDrawer> {
     return Drawer(
       child: ListView(
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.white,
             ),
-            child: Text('Drawer Header'),
+            child: Image.asset(
+              'assets/logo.png',
+              fit: BoxFit.contain,
+            ),
           ),
           ListTile(
             title: const Text('Home'),

@@ -41,8 +41,7 @@ class _GalleryPageState extends State<GalleryPage> {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       events = await dbRef
           .get()
-          .then((value) => value.data() as Map<String, dynamic>);
-      events = events['events'];
+          .then((value) => events = value.data() as Map<String, dynamic>);
       for (var event in events.keys) {
         log(event);
         galleryImages[events[event]] = [];
@@ -72,6 +71,11 @@ class _GalleryPageState extends State<GalleryPage> {
                 scaffoldKey.currentState!.openEndDrawer();
               },
             ),
+            Text("EVENT GALLERY",
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  fontWeight: FontWeight.w900,
+                )),
             if (isLoading)
               SizedBox(
                 height: 90.h,

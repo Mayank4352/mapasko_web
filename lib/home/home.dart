@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
                   width: double.infinity,
                   child: Image.asset(
                     'assets/ROYALE Ville .png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 Column(
@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
                       Expanded(
                         flex: 2,
                         child: Container(
-                          color: Colors.white,
+                          color: Colors.white.withOpacity(0.5),
                           height: 30.h,
                           width: 40.w,
                           child: Column(
