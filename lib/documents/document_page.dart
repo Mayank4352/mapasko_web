@@ -58,40 +58,55 @@ class _DocumentPageState extends State<DocumentPage> {
                     scaffoldKey.currentState!.openEndDrawer();
                   },
                 ),
-                Padding(
-                  padding: EdgeInsets.all(20.sp),
-                  child: 100.w < 900
-                      ? ListView.builder(
-                          shrinkWrap: true,
-                          padding: EdgeInsets.only(top: 10.sp, bottom: 10.sp),
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: documents.length,
-                          itemBuilder: (context, index) {
-                            return DocumentWidget(
-                              heading: documents.keys.elementAt(index),
-                              downloadURL: documents.values.elementAt(index),
-                            );
-                          })
-                      : GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            mainAxisExtent: 40.h,
-                            crossAxisCount: 4,
-                            crossAxisSpacing: 10.sp,
-                            mainAxisSpacing: 10.sp,
-                          ),
-                          itemCount: documents.length,
-                          itemBuilder: (context, index) {
-                            return DocumentWidget(
-                              downloadURL: documents.values.elementAt(index),
-                              heading: documents.keys.elementAt(index),
-                            );
-                          },
-                          padding: const EdgeInsets.all(10),
-                        ),
+                Text(
+                  "STANDARD OPERATING PROCEDURES",
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
+                isLoading
+                    ? SizedBox(
+                        height: 100.h,
+                        child: Center(child: CircularProgressIndicator()))
+                    : Padding(
+                        padding: EdgeInsets.all(20.sp),
+                        child: 100.w < 900
+                            ? ListView.builder(
+                                shrinkWrap: true,
+                                padding:
+                                    EdgeInsets.only(top: 10.sp, bottom: 10.sp),
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemCount: documents.length,
+                                itemBuilder: (context, index) {
+                                  return DocumentWidget(
+                                    heading: documents.keys.elementAt(index),
+                                    downloadURL:
+                                        documents.values.elementAt(index),
+                                  );
+                                })
+                            : GridView.builder(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  mainAxisExtent: 40.h,
+                                  crossAxisCount: 4,
+                                  crossAxisSpacing: 10.sp,
+                                  mainAxisSpacing: 10.sp,
+                                ),
+                                itemCount: documents.length,
+                                itemBuilder: (context, index) {
+                                  return DocumentWidget(
+                                    downloadURL:
+                                        documents.values.elementAt(index),
+                                    heading: documents.keys.elementAt(index),
+                                  );
+                                },
+                                padding: const EdgeInsets.all(10),
+                              ),
+                      ),
               ],
             ),
           ),
