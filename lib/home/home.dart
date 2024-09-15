@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
                   height: 100.h,
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/Mapsko-Royale-Ville.jpg',
+                    'assets/ROYALE Ville .png',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -35,36 +35,12 @@ class HomePage extends StatelessWidget {
                         scaffoldKey.currentState!.openEndDrawer();
                       },
                     ),
-                    SizedBox(
-                      height: 100.h,
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          'MAPSKO ROYAL VILLE',
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 30.sp,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.red[900],
-                          ),
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ],
             ),
             Stack(
               children: [
-                SizedBox(
-                  height: 100.h,
-                  width: double.infinity,
-                  child: Image.asset(
-                    'assets/mapsko-royal-ville-top2.jpg',
-                    fit: BoxFit.cover,
-                  ),
-                ),
                 Container(
                   height: 100.h,
                   padding: EdgeInsets.all(12.h),

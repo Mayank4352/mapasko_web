@@ -42,12 +42,11 @@ class ContactUsPage extends StatelessWidget {
       endDrawer: const HomePageDrawer(),
       body: Stack(
         children: [
-          // Background image
           SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: Image.asset(
-              'assets/mapsko royal ville garden 2.jpg', // Your background image
+              'assets/mapsko royal ville garden 2.jpg',
               fit: BoxFit.cover,
             ),
           ),
