@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
       return CalendarControllerProvider(
         controller: EventController(),
         child: GetMaterialApp(
-          title: 'Flutter Demo',
+          title: 'Mapsko Royale Ville',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

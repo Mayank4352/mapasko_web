@@ -45,7 +45,8 @@ class GalleryMarquee extends StatelessWidget {
                   },
                 ),
               ),
-              Text(eventName, style: TextStyle(fontSize: 11.sp)),
+              Text(eventName,
+                  style: TextStyle(fontSize: 100.w < 900 ? 16.sp : 11.sp)),
             ],
           );
         }),
