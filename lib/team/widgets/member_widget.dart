@@ -15,7 +15,6 @@ class MemberWidget extends StatelessWidget {
     return Container(
       height: 35.h,
       width: 13.w,
-      // color: Colors.orange,
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(10.sp)),

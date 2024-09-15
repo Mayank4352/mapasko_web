@@ -20,7 +20,7 @@ class DetailsWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: 8.0.sp, bottom: 8.0.sp),
       child: Container(
-        color: Colors.white,
+        color: Colors.white.withOpacity(0.4),
         height: 35.h,
         width: 100.w < 900 ? 70.w : 20.w,
         child: Column(
@@ -36,7 +36,7 @@ class DetailsWidget extends StatelessWidget {
               heading,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w800,
                 fontSize: 2.h,
                 color: Colors.black,
                 fontFamily: GoogleFonts.nunito().fontFamily,
@@ -49,7 +49,7 @@ class DetailsWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 100.w < 900 ? 15.sp : 12.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.orange[600],
+                    color: Colors.black,
                     fontFamily: GoogleFonts.nunito().fontFamily,
                   )),
             ),

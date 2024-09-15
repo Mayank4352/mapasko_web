@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                       },
                     ),
                     SizedBox(
-                      height: 100.h,
+                      height: 90.h,
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
@@ -96,7 +96,7 @@ class HomePage extends StatelessWidget {
                       Expanded(
                         flex: 2,
                         child: Container(
-                          color: Colors.white,
+                          color: Colors.white.withOpacity(0.5),
                           height: 30.h,
                           width: 40.w,
                           child: Column(

@@ -59,23 +59,26 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HomeAppBar(
-              onPressedMobile: () {
-                scaffoldKey.currentState!.openEndDrawer();
-              },
-            ),
             Stack(
               children: [
                 SizedBox(
-                  height: 89.h,
+                  height: 100.h,
                   width: double.infinity,
                   child: Image.asset(
                     'assets/Mapsko-Royale-Ville.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: HomeAppBar(
+                    onPressedMobile: () {
+                      scaffoldKey.currentState!.openEndDrawer();
+                    },
+                  ),
+                ),
                 SizedBox(
-                  height: 72.h,
+                  height: 100.h,
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: Text(
