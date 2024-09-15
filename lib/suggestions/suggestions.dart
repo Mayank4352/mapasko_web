@@ -10,7 +10,7 @@ class SuggestionsPage extends StatefulWidget {
   const SuggestionsPage({super.key});
 
   @override
-  _SuggestionsPageState createState() => _SuggestionsPageState();
+  State<SuggestionsPage> createState() => _SuggestionsPageState();
 }
 
 class _SuggestionsPageState extends State<SuggestionsPage> {
