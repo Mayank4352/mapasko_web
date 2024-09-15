@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
@@ -24,8 +26,8 @@ class HomePage extends StatelessWidget {
                   height: 100.h,
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/ROYALE Ville .png',
-                    fit: BoxFit.fill,
+                    'assets/hero_image.jpg',
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Column(
@@ -34,6 +36,19 @@ class HomePage extends StatelessWidget {
                       onPressedMobile: () {
                         scaffoldKey.currentState!.openEndDrawer();
                       },
+                    ),
+                    SizedBox(
+                      height: 90.h,
+                      width: double.infinity,
+                      child: Center(
+                        child: Text("MAPSKO\nROYALE VILLE",
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.clip,
+                            style: GoogleFonts.domine(
+                                fontSize: 25.sp,
+                                color: Colors.red[600],
+                                fontWeight: FontWeight.bold)),
+                      ),
                     ),
                   ],
                 ),

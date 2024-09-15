@@ -27,9 +27,9 @@ class _TeamPageState extends State<TeamPage> {
 
   Map<String, String> abanteImgPaths = {
     "assets/mosam.jpg": "Mr. Mosam Kumar\nOperations Manager",
-    "assets/amitkr.png": "Mr. Amit Kumar Yadav\nEstate Manager",
-    "assets/sandeep.jpg": "Mr. Sandeep Yadav\nTechnical Manager",
-    "assets/pooja.jpg": "Ms. Pooja Gupta\nHelp Desk"
+    "assets/amitkr.png": "Mr. Amit Kumar Yadav\nEstate Manager\n9319884424",
+    "assets/sandeep.jpg": "Mr. Sandeep Yadav\nTechnical Manager\n9319884425",
+    "assets/pooja.jpg": "Ms. Pooja Gupta\nHelp Desk\n0124-5059418/9319884427"
   };
 
   @override
