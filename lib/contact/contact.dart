@@ -40,25 +40,23 @@ class ContactUsPage extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       endDrawer: const HomePageDrawer(),
-      body: Stack(
-        children: [
-          SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: Image.asset(
-              'assets/mapsko royal ville garden 2.jpg',
-              fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeAppBar(
+              onPressedMobile: () {
+                scaffoldKey.currentState!.openEndDrawer();
+              },
             ),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            Stack(
               children: [
-                HomeAppBar(
-                  onPressedMobile: () {
-                    scaffoldKey.currentState!.openEndDrawer();
-                  },
+                SizedBox(
+                  height: 100.h,
+                  width: double.infinity,
+                  child: Image.asset(
+                    'assets/mapsko royal ville garden 2.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 100.w < 900
                     ? SizedBox(
@@ -69,17 +67,17 @@ class ContactUsPage extends StatelessWidget {
                       )
                     : SizedBox(
                         width: double.infinity,
-                        height: 88.h,
+                        height: 100.h,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: details,
                         ),
                       ),
-                const Footer(),
               ],
             ),
-          ),
-        ],
+            const Footer(),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeAppBar extends StatefulWidget {
@@ -12,56 +13,9 @@ class HomeAppBar extends StatefulWidget {
 }
 
 class _HomeAppBarState extends State<HomeAppBar> {
-  List<Widget> desktop = [
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/home');
-      },
-      child: const Text('Home', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/team');
-      },
-      child: const Text('About Us', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/contact');
-      },
-      child: const Text('Contact Us', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/gallery');
-      },
-      child: const Text('Gallery', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/calendar');
-      },
-      child: const Text('Calendar', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/notices');
-      },
-      child: const Text('Notices', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/sop');
-      },
-      child: const Text('SOP', style: TextStyle(color: Colors.black)),
-    ),
-    TextButton(
-      onPressed: () {
-        Get.offAllNamed('/suggestions');
-      },
-      child: const Text('Suggestions', style: TextStyle(color: Colors.black)),
-    ),
-  ];
+  final TextStyle style = GoogleFonts.nunito(
+      color: const Color(0xff880100), fontWeight: FontWeight.w900);
+  late List<Widget> desktop;
   late List<Widget> mobile;
   @override
   void initState() {
@@ -70,19 +24,69 @@ class _HomeAppBarState extends State<HomeAppBar> {
       IconButton(
           onPressed: widget.onPressedMobile, icon: const Icon(Icons.menu)),
     ];
+    desktop = [
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/home');
+        },
+        child: Text('Home', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/team');
+        },
+        child: Text('About Us', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/contact');
+        },
+        child: Text('Contact Us', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/gallery');
+        },
+        child: Text('Gallery', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/calendar');
+        },
+        child: Text('Calendar', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/notices');
+        },
+        child: Text('Notices', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/sop');
+        },
+        child: Text('SOP', style: style),
+      ),
+      TextButton(
+        onPressed: () {
+          Get.offAllNamed('/suggestions');
+        },
+        child: Text('Suggestions', style: style),
+      ),
+    ];
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      toolbarHeight: 7.h,
-      backgroundColor: Colors.transparent.withOpacity(0.2),
+      toolbarHeight: 8.h,
+      backgroundColor: Colors.white,
       automaticallyImplyLeading: false,
-      shadowColor: Colors.transparent,
+      //shadowColor: Colors.transparent,
       title: Image.asset(
         'assets/logo.png',
-        height: 7.h,
+        height: 8.h,
         fit: BoxFit.contain,
       ),
       actions: 100.w < 900 ? mobile : desktop,

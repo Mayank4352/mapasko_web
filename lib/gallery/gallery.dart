@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/gallery/widgets/gallery_marquee.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
@@ -71,11 +72,22 @@ class _GalleryPageState extends State<GalleryPage> {
                 scaffoldKey.currentState!.openEndDrawer();
               },
             ),
-            Text("EVENT GALLERY",
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w900,
-                )),
+            Padding(
+              padding: EdgeInsets.only(top: 10.0.sp),
+              child: Container(
+                width: 100.w < 900 ? 60.w : 30.w,
+                color: const Color(0xffff5e14),
+                padding: EdgeInsets.all(8.sp),
+                child: Text(
+                  "EVENT GALLERY",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.nunito(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white),
+                ),
+              ),
+            ),
             if (isLoading)
               SizedBox(
                 height: 90.h,

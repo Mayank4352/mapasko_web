@@ -61,6 +61,11 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
           children: [
             Stack(
               children: [
+                HomeAppBar(
+                  onPressedMobile: () {
+                    scaffoldKey.currentState!.openEndDrawer();
+                  },
+                ),
                 SizedBox(
                   height: 100.h,
                   width: double.infinity,
@@ -73,11 +78,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                   height: 100.h,
                   width: double.infinity,
                   child: Column(children: [
-                    HomeAppBar(
-                      onPressedMobile: () {
-                        scaffoldKey.currentState!.openEndDrawer();
-                      },
-                    ),
                     Text(
                       'Suggestions',
                       textAlign: TextAlign.center,
