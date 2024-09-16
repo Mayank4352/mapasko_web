@@ -34,7 +34,7 @@ class ContactUsPage extends StatelessWidget {
           icon: Icons.holiday_village,
           heading: "Society Description",
           subHeading:
-              "Total Flats: 486\nTotal Sqft. Area: 10,90,802 Sq ft\nOccupied Flats: 434\nOwners: 251\nTenants: 183")
+              "Total Flats: 486\nTotal Sqft. Area: 10,90,802 Sq ft\nOccupied Flats: 434\nOwners: 251\nTenants: 183"),
     ];
 
     return Scaffold(
@@ -43,11 +43,13 @@ class ContactUsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HomeAppBar(
-              onPressedMobile: () {
-                scaffoldKey.currentState!.openEndDrawer();
-              },
-            ),
+            100.w < 900
+                ? SizedBox()
+                : HomeAppBar(
+                    onPressedMobile: () {
+                      scaffoldKey.currentState!.openEndDrawer();
+                    },
+                  ),
             Stack(
               children: [
                 SizedBox(
@@ -60,9 +62,20 @@ class ContactUsPage extends StatelessWidget {
                 ),
                 100.w < 900
                     ? SizedBox(
+                        height: 100.h,
                         width: double.infinity,
-                        child: Column(
-                          children: details,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              HomeAppBar(
+                                onPressedMobile: () {
+                                  scaffoldKey.currentState!.openEndDrawer();
+                                },
+                              ),
+                              ...details,
+                              const Footer(),
+                            ],
+                          ),
                         ),
                       )
                     : SizedBox(
@@ -75,7 +88,7 @@ class ContactUsPage extends StatelessWidget {
                       ),
               ],
             ),
-            const Footer(),
+            100.w < 900 ? SizedBox() : const Footer(),
           ],
         ),
       ),

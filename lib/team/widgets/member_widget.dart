@@ -50,7 +50,7 @@ class MemberWidget extends StatelessWidget {
                     style: GoogleFonts.nunito(
                         fontSize: 15.sp,
                         fontWeight: FontWeight.w900,
-                        color: Color(0xff376996)),
+                        color: Color.fromARGB(255, 0, 44, 82)),
                   ),
                   Text(
                     title,

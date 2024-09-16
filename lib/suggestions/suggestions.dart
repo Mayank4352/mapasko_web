@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
@@ -50,6 +51,10 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
     }
   }
 
+  TextStyle labelStyle = GoogleFonts.nunito(
+      fontSize: 15.sp,
+      fontWeight: FontWeight.w900,
+      color: Color.fromARGB(255, 0, 44, 82));
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,13 +64,13 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            HomeAppBar(
+              onPressedMobile: () {
+                scaffoldKey.currentState!.openEndDrawer();
+              },
+            ),
             Stack(
               children: [
-                HomeAppBar(
-                  onPressedMobile: () {
-                    scaffoldKey.currentState!.openEndDrawer();
-                  },
-                ),
                 SizedBox(
                   height: 100.h,
                   width: double.infinity,
@@ -78,23 +83,30 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                   height: 100.h,
                   width: double.infinity,
                   child: Column(children: [
-                    Text(
-                      'Suggestions',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.red[900],
+                    Padding(
+                      padding: EdgeInsets.only(top: 10.0.sp),
+                      child: Container(
+                        width: 100.w < 900 ? 50.w : 25.w,
+                        color: const Color(0xffff5e14),
+                        padding: EdgeInsets.all(8.sp),
+                        child: Text(
+                          "SUGGESTIONS",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.nunito(
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w900,
+                              color: Colors.white),
+                        ),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 6.h),
                       child: Container(
                         alignment: Alignment.bottomCenter,
-                        height: 50.h,
+                        height: 70.h,
                         width: 70.w,
                         decoration: BoxDecoration(
-                          color: Colors.white38,
+                          color: Colors.white.withOpacity(0.7),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: LayoutBuilder(builder: (context, constraints) {
@@ -106,14 +118,19 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                               child: Column(
                                 children: [
                                   SizedBox(
-                                    height: 0.15 * constraints.maxHeight,
+                                    height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w900),
                                       expands: true,
                                       minLines: null,
                                       maxLines: null,
                                       controller: _nameController,
-                                      decoration: const InputDecoration(
-                                          labelText: 'Your Name'),
+                                      decoration: InputDecoration(
+                                        labelText: 'Your Name',
+                                        labelStyle: labelStyle,
+                                      ),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter your name';
@@ -123,13 +140,14 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 0.15 * constraints.maxHeight,
+                                    height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
                                       controller: _emailController,
-                                      decoration: const InputDecoration(
+                                      decoration: InputDecoration(
+                                          labelStyle: labelStyle,
                                           labelText: 'Your Email'),
                                       keyboardType: TextInputType.emailAddress,
                                       validator: (value) {
@@ -145,14 +163,33 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 0.15 * constraints.maxHeight,
+                                    height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
                                       controller: _subjectController,
-                                      decoration: const InputDecoration(
-                                          labelText: 'Subject'),
+                                      decoration: InputDecoration(
+                                          labelStyle: labelStyle,
+                                          labelText: 'Mobile No.'),
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Please enter a subject';
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 0.1 * constraints.maxHeight,
+                                    child: TextFormField(
+                                      minLines: null,
+                                      maxLines: null,
+                                      expands: true,
+                                      controller: _subjectController,
+                                      decoration: InputDecoration(
+                                          labelStyle: labelStyle,
+                                          labelText: 'Tower & Flat'),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter a subject';
@@ -168,8 +205,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                       maxLines: null,
                                       expands: true,
                                       controller: _messageController,
-                                      decoration: const InputDecoration(
-                                          labelText: 'Message'),
+                                      decoration: InputDecoration(
+                                          labelStyle: labelStyle,
+                                          labelText: 'Suggestion/Query'),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter a message';
