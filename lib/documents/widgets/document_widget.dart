@@ -21,7 +21,7 @@ class DocumentWidget extends StatelessWidget {
           await EasyLauncher.url(url: downloadURL);
         },
         child: Container(
-          color: Colors.white.withOpacity(0.4),
+          color: Colors.white.withOpacity(0.6),
           height: 35.h,
           width: 100.w < 900 ? 70.w : 20.w,
           child: Column(
@@ -37,9 +37,9 @@ class DocumentWidget extends StatelessWidget {
                 heading,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontWeight: FontWeight.w800,
-                  fontSize: 2.h,
-                  color: Colors.black,
+                  fontWeight: FontWeight.w900,
+                  fontSize: 100.w < 900 ? 22.sp : 15.sp,
+                  color: Color.fromARGB(255, 0, 44, 82),
                   fontFamily: GoogleFonts.nunito().fontFamily,
                 ),
               ),

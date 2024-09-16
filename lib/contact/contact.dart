@@ -34,52 +34,63 @@ class ContactUsPage extends StatelessWidget {
           icon: Icons.holiday_village,
           heading: "Society Description",
           subHeading:
-              "Total Flats: 486\nTotal Sqft. Area: 10,90,802 Sq ft\nOccupied Flats: 434\nOwners: 251\nTenants: 183")
+              "Total Flats: 486\nTotal Sqft. Area: 10,90,802 Sq ft\nOccupied Flats: 434\nOwners: 251\nTenants: 183"),
     ];
 
     return Scaffold(
       key: scaffoldKey,
       endDrawer: const HomePageDrawer(),
-      body: Stack(
-        children: [
-          SizedBox(
-            height: double.infinity,
-            width: double.infinity,
-            child: Image.asset(
-              'assets/mapsko royal ville garden 2.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            100.w < 900
+                ? SizedBox()
+                : HomeAppBar(
+                    onPressedMobile: () {
+                      scaffoldKey.currentState!.openEndDrawer();
+                    },
+                  ),
+            Stack(
               children: [
-                HomeAppBar(
-                  onPressedMobile: () {
-                    scaffoldKey.currentState!.openEndDrawer();
-                  },
+                SizedBox(
+                  height: 100.h,
+                  width: double.infinity,
+                  child: Image.asset(
+                    'assets/mapsko royal ville garden 2.jpg',
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 100.w < 900
                     ? SizedBox(
+                        height: 100.h,
                         width: double.infinity,
-                        child: Column(
-                          children: details,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              HomeAppBar(
+                                onPressedMobile: () {
+                                  scaffoldKey.currentState!.openEndDrawer();
+                                },
+                              ),
+                              ...details,
+                              const Footer(),
+                            ],
+                          ),
                         ),
                       )
                     : SizedBox(
                         width: double.infinity,
-                        height: 88.h,
+                        height: 100.h,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: details,
                         ),
                       ),
-                const Footer(),
               ],
             ),
-          ),
-        ],
+            100.w < 900 ? SizedBox() : const Footer(),
+          ],
+        ),
       ),
     );
   }

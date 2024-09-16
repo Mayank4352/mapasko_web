@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/documents/widgets/document_widget.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
@@ -58,13 +59,21 @@ class _DocumentPageState extends State<DocumentPage> {
                     scaffoldKey.currentState!.openEndDrawer();
                   },
                 ),
-                Text(
-                  "STANDARD OPERATING PROCEDURES",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
+                Padding(
+                  padding: EdgeInsets.only(top: 10.0.sp),
+                  child: Container(
+                    width: 100.w < 900 ? 90.w : 60.w,
+                    color: const Color(0xffff5e14),
+                    padding: EdgeInsets.all(8.sp),
+                    child: Text(
+                      "STANDARD OPERATING PROCEDURES",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.nunito(
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
                 isLoading
                     ? SizedBox(
@@ -86,25 +95,29 @@ class _DocumentPageState extends State<DocumentPage> {
                                         documents.values.elementAt(index),
                                   );
                                 })
-                            : GridView.builder(
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  mainAxisExtent: 40.h,
-                                  crossAxisCount: 4,
-                                  crossAxisSpacing: 10.sp,
-                                  mainAxisSpacing: 10.sp,
+                            : Padding(
+                                padding:
+                                    EdgeInsets.only(left: 30.w, right: 15.w),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    mainAxisExtent: 40.h,
+                                    crossAxisCount: 3,
+                                    crossAxisSpacing: 10.sp,
+                                    mainAxisSpacing: 10.sp,
+                                  ),
+                                  itemCount: documents.length,
+                                  itemBuilder: (context, index) {
+                                    return DocumentWidget(
+                                      downloadURL:
+                                          documents.values.elementAt(index),
+                                      heading: documents.keys.elementAt(index),
+                                    );
+                                  },
+                                  padding: const EdgeInsets.all(10),
                                 ),
-                                itemCount: documents.length,
-                                itemBuilder: (context, index) {
-                                  return DocumentWidget(
-                                    downloadURL:
-                                        documents.values.elementAt(index),
-                                    heading: documents.keys.elementAt(index),
-                                  );
-                                },
-                                padding: const EdgeInsets.all(10),
                               ),
                       ),
               ],

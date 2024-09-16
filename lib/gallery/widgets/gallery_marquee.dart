@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_infinite_marquee/flutter_infinite_marquee.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class GalleryMarquee extends StatelessWidget {
@@ -46,7 +47,10 @@ class GalleryMarquee extends StatelessWidget {
                 ),
               ),
               Text(eventName,
-                  style: TextStyle(fontSize: 100.w < 900 ? 16.sp : 11.sp)),
+                  style: GoogleFonts.nunito(
+                      fontSize: 100.w < 900 ? 16.sp : 11.sp,
+                      color: Color.fromARGB(255, 0, 44, 82),
+                      fontWeight: FontWeight.w900)),
             ],
           );
         }),

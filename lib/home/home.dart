@@ -20,6 +20,11 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            HomeAppBar(
+              onPressedMobile: () {
+                scaffoldKey.currentState!.openEndDrawer();
+              },
+            ),
             Stack(
               children: [
                 SizedBox(
@@ -29,28 +34,6 @@ class HomePage extends StatelessWidget {
                     'assets/hero_image.jpg',
                     fit: BoxFit.cover,
                   ),
-                ),
-                Column(
-                  children: [
-                    HomeAppBar(
-                      onPressedMobile: () {
-                        scaffoldKey.currentState!.openEndDrawer();
-                      },
-                    ),
-                    SizedBox(
-                      height: 90.h,
-                      width: double.infinity,
-                      child: Center(
-                        child: Text("MAPSKO\nROYALE VILLE",
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.clip,
-                            style: GoogleFonts.domine(
-                                fontSize: 25.sp,
-                                color: Colors.red[600],
-                                fontWeight: FontWeight.bold)),
-                      ),
-                    ),
-                  ],
                 ),
               ],
             ),
