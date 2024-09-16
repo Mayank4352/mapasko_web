@@ -6,9 +6,10 @@ import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:intl/intl.dart';
 
 class SuggestionsPage extends StatefulWidget {
-  const SuggestionsPage({super.key});
+  SuggestionsPage({super.key});
 
   @override
   State<SuggestionsPage> createState() => _SuggestionsPageState();
@@ -20,6 +21,7 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _subjectController = TextEditingController();
   final TextEditingController _messageController = TextEditingController();
+  String formattedDate = DateFormat('MMMM d , hh:mm a').format(DateTime.now());
 
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
@@ -54,7 +56,7 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
   TextStyle labelStyle = GoogleFonts.nunito(
       fontSize: 15.sp,
       fontWeight: FontWeight.w900,
-      color: Color.fromARGB(255, 0, 44, 82));
+      color: const Color.fromARGB(255, 0, 44, 82));
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -216,22 +218,60 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                       },
                                     ),
                                   ),
-                                  Container(
-                                    height: 0.14 * constraints.maxHeight,
+                                  Padding(
                                     padding: EdgeInsets.only(
                                         top: 0.05 * constraints.maxHeight),
-                                    child: ElevatedButton(
-                                      onPressed: _submitForm,
-                                      style: ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.black,
-                                        backgroundColor:
-                                            const Color(0xffff5e14),
-                                        shape: BeveledRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(10.sp)),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ElevatedButton(
+                                            onPressed: _submitForm,
+                                            style: ElevatedButton.styleFrom(
+                                              foregroundColor: Colors.black,
+                                              backgroundColor:
+                                                  const Color(0xffff5e14),
+                                              shape: BeveledRectangleBorder(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(10.sp)),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: 0.02 *
+                                                      constraints.maxHeight,
+                                                  horizontal: 0.005 *
+                                                      constraints.maxWidth),
+                                              child: Text('Submit',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w900,
+                                                    fontSize: 2.h,
+                                                    color: Colors.white,
+                                                    fontFamily:
+                                                        GoogleFonts.nunito()
+                                                            .fontFamily,
+                                                  )),
+                                            )),
+                                        Container(
+                                          height: 100.w < 900
+                                              ? 0.1 * constraints.maxHeight
+                                              : 0.05 * constraints.maxHeight,
+                                          width: 100.w < 900
+                                              ? 0.30 * constraints.maxWidth
+                                              : 0.17 * constraints.maxWidth,
+                                          color: const Color(0xffff5e14),
+                                          child: Text(
+                                            formattedDate,
+                                            style: TextStyle(
+                                              fontSize: 1.5.h,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              letterSpacing: 1.5,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
                                         ),
-                                      ),
-                                      child: const Text('Submit'),
+                                      ],
                                     ),
                                   ),
                                 ],

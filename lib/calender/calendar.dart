@@ -15,7 +15,9 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   EventController _eventController = EventController();
+  EventController _socialController = EventController();
   DateTime _selectedMonth = DateTime.now();
+  String _selectedCalendar = 'Event Calendar';
 
   List<int> months = List.generate(12, (index) => index + 1);
   List<int> years =
@@ -26,11 +28,15 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   void initState() {
     super.initState();
-
+    _socialController.add(CalendarEventData(
+        title: 'Test Event',
+        color: Colors.red,
+        date: DateTime.now(),
+        description: "This is the event made for testing"));
     _eventController.add(CalendarEventData(
         title: 'Test Event',
         date: DateTime.now(),
-        description: "This os the event made for testing"));
+        description: "This is the event made for testing"));
   }
 
   @override
@@ -51,6 +57,28 @@ class _CalendarPageState extends State<CalendarPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                DropdownButton<String>(
+                  value: _selectedCalendar,
+                  items: const [
+                    DropdownMenuItem(
+                      value: 'Event Calendar',
+                      child: Text('Event Calendar'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Social Calendar',
+                      child: Text('Social Calendar'),
+                    ),
+                  ],
+                  onChanged: (String? newValue) {
+                    if (newValue != null) {
+                      setState(() {
+                        _selectedCalendar = newValue;
+                      });
+                    }
+                  },
+                  hint: const Text("Select Calendar"),
+                ),
+                const SizedBox(width: 20),
                 DropdownButton<int>(
                   value: _selectedMonth.month,
                   items: months.map((int month) {
@@ -109,10 +137,14 @@ class _CalendarPageState extends State<CalendarPage> {
                           height: 100.w < 900 ? 100.w : 100.h,
                           width: 100.w < 900 ? 100.w : 60.w,
                           child: CalendarControllerProvider(
-                            controller: _eventController,
+                            controller: _selectedCalendar == "Event Calendar"
+                                ? _eventController
+                                : _socialController,
                             child: MonthView(
                               key: ValueKey(_selectedMonth),
-                              controller: _eventController,
+                              controller: _selectedCalendar == "Event Calendar"
+                                  ? _eventController
+                                  : _socialController,
                               minMonth: DateTime(1990),
                               maxMonth: DateTime(2050),
                               initialMonth:
@@ -121,24 +153,16 @@ class _CalendarPageState extends State<CalendarPage> {
                               onPageChange: (date, pageIndex) =>
                                   log("$date, $pageIndex"),
                               onCellTap: (events, date) {
-                                // Callback when user taps on a cell
                                 log(events.toString());
                               },
-                              startDay: WeekDays
-                                  .sunday, // Change the first day of the week
+                              startDay: WeekDays.sunday,
                               onEventTap: (event, date) => setState(() {
                                 eventDetails = event.title;
                                 eventDetails +=
                                     "\n\n${date.day}/${date.month}/${date.year}";
                                 eventDetails += "\n\n${event.description}";
                               }),
-                              onEventDoubleTap: (events, date) =>
-                                  log(events.toString()),
-                              onEventLongTap: (event, date) =>
-                                  log(event.toString()),
-                              onDateLongPress: (date) => log(date.toString()),
-                              headerBuilder: MonthHeader
-                                  .hidden, // To hide the month header
+                              headerBuilder: MonthHeader.hidden,
                               showWeekTileBorder: true,
                               hideDaysNotInMonth: true,
                               borderColor: Colors.black,
@@ -197,36 +221,31 @@ class _CalendarPageState extends State<CalendarPage> {
                         height: 100.w < 900 ? 100.w : 100.h,
                         width: 100.w < 900 ? 100.w : 60.w,
                         child: CalendarControllerProvider(
-                          controller: _eventController,
+                          controller: _selectedCalendar == "Event Calendar"
+                              ? _eventController
+                              : _socialController,
                           child: MonthView(
                             key: ValueKey(_selectedMonth),
-                            controller: _eventController,
+                            controller: _selectedCalendar == "Event Calendar"
+                                ? _eventController
+                                : _socialController,
                             minMonth: DateTime(1990),
                             maxMonth: DateTime(2050),
-                            initialMonth:
-                                _selectedMonth, // Updated when dropdown changes
+                            initialMonth: _selectedMonth,
                             cellAspectRatio: 1,
                             onPageChange: (date, pageIndex) =>
                                 log("$date, $pageIndex"),
                             onCellTap: (events, date) {
-                              // Callback when user taps on a cell
                               log(events.toString());
                             },
-                            startDay: WeekDays
-                                .sunday, // Change the first day of the week
+                            startDay: WeekDays.sunday,
                             onEventTap: (event, date) => setState(() {
                               eventDetails = event.title;
                               eventDetails +=
                                   "\n\n${date.day}/${date.month}/${date.year}";
                               eventDetails += "\n\n${event.description}";
                             }),
-                            onEventDoubleTap: (events, date) =>
-                                log(events.toString()),
-                            onEventLongTap: (event, date) =>
-                                log(event.toString()),
-                            onDateLongPress: (date) => log(date.toString()),
-                            headerBuilder:
-                                MonthHeader.hidden, // To hide the month header
+                            headerBuilder: MonthHeader.hidden,
                             showWeekTileBorder: true,
                             hideDaysNotInMonth: true,
                             borderColor: Colors.black,

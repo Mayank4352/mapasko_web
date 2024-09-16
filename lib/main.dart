@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
         );
       case '/suggestions':
         return PageTransition(
-          child: const SuggestionsPage(),
+          child: SuggestionsPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
