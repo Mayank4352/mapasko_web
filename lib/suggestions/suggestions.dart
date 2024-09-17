@@ -19,7 +19,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _subjectController = TextEditingController();
+  final TextEditingController _mobileController = TextEditingController();
+  final TextEditingController _towerController = TextEditingController();
+
   final TextEditingController _messageController = TextEditingController();
   String formattedDate = DateFormat('MMMM d , hh:mm a').format(DateTime.now());
 
@@ -29,7 +31,8 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
         await FirebaseFirestore.instance.collection('suggestions').add({
           'name': _nameController.text,
           'email': _emailController.text,
-          'subject': _subjectController.text,
+          'mobile': _mobileController.text,
+          'tower': _towerController,
           'message': _messageController.text,
         });
 
@@ -41,7 +44,8 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
 
         _nameController.clear();
         _emailController.clear();
-        _subjectController.clear();
+        _mobileController.clear();
+        _towerController.clear();
         _messageController.clear();
       } catch (e) {
         Fluttertoast.showToast(
@@ -170,13 +174,17 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
-                                      controller: _subjectController,
+                                      controller: _mobileController,
                                       decoration: InputDecoration(
                                           labelStyle: labelStyle,
                                           labelText: 'Mobile No.'),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter a subject';
+                                        }
+                                        if (!RegExp(r'^[6-9]\d{9}$')
+                                            .hasMatch(value)) {
+                                          return 'Please enter a valid mobile number';
                                         }
                                         return null;
                                       },
@@ -188,13 +196,13 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
-                                      controller: _subjectController,
+                                      controller: _towerController,
                                       decoration: InputDecoration(
                                           labelStyle: labelStyle,
                                           labelText: 'Tower & Flat'),
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
-                                          return 'Please enter a subject';
+                                          return 'Please enter tower and flat no.';
                                         }
                                         return null;
                                       },
