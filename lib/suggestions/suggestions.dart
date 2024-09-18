@@ -148,6 +148,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -171,6 +174,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -193,6 +199,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -204,6 +213,11 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter tower and flat no.';
                                         }
+                                        if (!RegExp(
+                                                r'^(?:[1-9]|[1-9]\d|[1-3]\d{2}|400)$')
+                                            .hasMatch(value)) {
+                                          return 'Please enter a valid flat number';
+                                        }
                                         return null;
                                       },
                                     ),
@@ -211,6 +225,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.25 * constraints.maxHeight,
                                     child: TextFormField(
+                                      style: GoogleFonts.nunito(
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
