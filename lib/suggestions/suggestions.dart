@@ -7,6 +7,7 @@ import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:intl/intl.dart';
+import 'dart:developer';
 
 class SuggestionsPage extends StatefulWidget {
   SuggestionsPage({super.key});
@@ -32,7 +33,7 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
           'name': _nameController.text,
           'email': _emailController.text,
           'mobile': _mobileController.text,
-          'tower': _towerController,
+          'tower': _towerController.text,
           'message': _messageController.text,
         });
 
@@ -53,6 +54,7 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
         );
+        log(e.toString());
       }
     }
   }
