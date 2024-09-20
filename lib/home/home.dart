@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 100.w < 900 ? 15.sp : 11.sp,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 44, 82),
+                                color: const Color.fromARGB(255, 0, 44, 82),
                                 fontFamily: GoogleFonts.nunito().fontFamily,
                               ),
                             ),
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 100.w < 900 ? 15.sp : 10.2.sp,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 0, 44, 82),
+                                color: const Color.fromARGB(255, 0, 44, 82),
                                 fontFamily: GoogleFonts.nunito().fontFamily,
                               ),
                             ),

@@ -44,7 +44,7 @@ class ContactUsPage extends StatelessWidget {
         child: Column(
           children: [
             100.w < 900
-                ? SizedBox()
+                ? const SizedBox()
                 : HomeAppBar(
                     onPressedMobile: () {
                       scaffoldKey.currentState!.openEndDrawer();
@@ -56,7 +56,7 @@ class ContactUsPage extends StatelessWidget {
                   height: 100.h,
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/mapsko royal ville garden 2.jpg',
+                    'assets/Garden_mapsko.jpg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -88,7 +88,7 @@ class ContactUsPage extends StatelessWidget {
                       ),
               ],
             ),
-            100.w < 900 ? SizedBox() : const Footer(),
+            100.w < 900 ? const SizedBox() : const Footer(),
           ],
         ),
       ),

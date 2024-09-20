@@ -10,7 +10,7 @@ import 'package:intl/intl.dart';
 import 'dart:developer';
 
 class SuggestionsPage extends StatefulWidget {
-  SuggestionsPage({super.key});
+  const SuggestionsPage({super.key});
 
   @override
   State<SuggestionsPage> createState() => _SuggestionsPageState();

@@ -49,7 +49,7 @@ class DetailsWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 100.w < 900 ? 15.sp : 12.sp,
                     fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 0, 44, 82),
+                    color: const Color.fromARGB(255, 0, 44, 82),
                     fontFamily: GoogleFonts.nunito().fontFamily,
                   )),
             ),

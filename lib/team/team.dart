@@ -33,7 +33,7 @@ class _TeamPageState extends State<TeamPage> {
   ];
 
   Map<String, String> abanteImgPaths = {
-    "assets/mosam.jpg": "Mr. Mosam Kumar",
+    "assets/Pawan Kumar.png": "Mr. Pawan Yadav ",
     "assets/amitkr.png": "Mr. Amit Kumar Yadav",
     "assets/sandeep.jpg": "Mr. Sandeep Yadav",
     "assets/pooja.jpg": "Ms. Pooja Gupta"
@@ -50,7 +50,7 @@ class _TeamPageState extends State<TeamPage> {
     return Scaffold(
       key: scaffoldKey,
       endDrawer: const HomePageDrawer(),
-      backgroundColor: Color(0xffEFEFEE),
+      backgroundColor: const Color(0xffEFEFEE),
       body: Stack(
         children: [
           Image.asset(

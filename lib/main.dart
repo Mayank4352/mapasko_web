@@ -5,7 +5,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:mapsko/calender/calendar.dart';
 import 'package:mapsko/coming_soon_page.dart';
 import 'package:mapsko/contact/contact.dart';
-import 'package:mapsko/documents/document_page.dart';
+import 'package:mapsko/SOP/document_page.dart';
 import 'package:mapsko/firebase_options.dart';
 import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';

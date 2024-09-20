@@ -49,7 +49,7 @@ class GalleryMarquee extends StatelessWidget {
               Text(eventName,
                   style: GoogleFonts.nunito(
                       fontSize: 100.w < 900 ? 16.sp : 11.sp,
-                      color: Color.fromARGB(255, 0, 44, 82),
+                      color: const Color.fromARGB(255, 0, 44, 82),
                       fontWeight: FontWeight.w900)),
             ],
           );

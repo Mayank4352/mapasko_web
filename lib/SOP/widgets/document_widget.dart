@@ -39,7 +39,7 @@ class DocumentWidget extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w900,
                   fontSize: 100.w < 900 ? 22.sp : 15.sp,
-                  color: Color.fromARGB(255, 0, 44, 82),
+                  color: const Color.fromARGB(255, 0, 44, 82),
                   fontFamily: GoogleFonts.nunito().fontFamily,
                 ),
               ),

@@ -15,7 +15,7 @@ class CalendarPage extends StatefulWidget {
 
 class _CalendarPageState extends State<CalendarPage> {
   EventController _eventController = EventController();
-  EventController _socialController = EventController();
+  final EventController _socialController = EventController();
   DateTime _selectedMonth = DateTime.now();
   String _selectedCalendar = 'Event Calendar';
 
