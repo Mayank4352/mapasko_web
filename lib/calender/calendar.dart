@@ -147,8 +147,7 @@ class _CalendarPageState extends State<CalendarPage> {
                                   : _socialController,
                               minMonth: DateTime(1990),
                               maxMonth: DateTime(2050),
-                              initialMonth:
-                                  _selectedMonth, // Updated when dropdown changes
+                              initialMonth: _selectedMonth,
                               cellAspectRatio: 1,
                               onPageChange: (date, pageIndex) =>
                                   log("$date, $pageIndex"),

@@ -9,6 +9,7 @@ import 'package:mapsko/SOP/document_page.dart';
 import 'package:mapsko/firebase_options.dart';
 import 'package:mapsko/gallery/gallery.dart';
 import 'package:mapsko/home/home.dart';
+import 'package:mapsko/notices/notices.dart';
 import 'package:mapsko/suggestions/suggestions.dart';
 import 'package:mapsko/team/team.dart';
 import 'package:page_transition/page_transition.dart';
@@ -71,6 +72,13 @@ class MyApp extends StatelessWidget {
       case '/suggestions':
         return PageTransition(
           child: SuggestionsPage(),
+          duration: const Duration(milliseconds: 300),
+          type: PageTransitionType.fade,
+          settings: settings,
+        );
+      case '/notices':
+        return PageTransition(
+          child: NoticePage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
