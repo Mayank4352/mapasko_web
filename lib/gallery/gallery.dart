@@ -5,6 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/gallery/widgets/gallery_marquee.dart';
+import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -97,6 +98,7 @@ class _GalleryPageState extends State<GalleryPage> {
               )
             else
               ...generateMarquees(),
+            Footer(),
           ],
         ),
       ),
