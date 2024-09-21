@@ -119,7 +119,6 @@ class _CalendarPageState extends State<CalendarPage> {
                       setState(() {
                         _selectedMonth =
                             DateTime(_selectedMonth.year, newMonth);
-                        _eventController = EventController();
                       });
                     }
                   },
