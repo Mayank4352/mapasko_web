@@ -43,12 +43,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
         );
-
-        _nameController.clear();
-        _emailController.clear();
-        _mobileController.clear();
-        _towerController.clear();
-        _messageController.clear();
       } catch (e) {
         Fluttertoast.showToast(
           msg: "Error submitting suggestion: $e",
@@ -65,6 +59,12 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
         'query': _messageController.text,
         'dateTime': DateTime.now().toString(),
       };
+
+      _nameController.clear();
+      _emailController.clear();
+      _mobileController.clear();
+      _towerController.clear();
+      _messageController.clear();
 
       try {
         await emailjs.send(
