@@ -105,7 +105,7 @@ class _NoticePageState extends State<NoticePage> {
                                         );
                                       })
                                   : Padding(
-                                      padding: EdgeInsets.only(left: 25.w),
+                                      padding: EdgeInsets.all(8.sp),
                                       child: GridView.builder(
                                         shrinkWrap: true,
                                         physics:
@@ -113,7 +113,7 @@ class _NoticePageState extends State<NoticePage> {
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
                                           mainAxisExtent: 40.h,
-                                          crossAxisCount: 3,
+                                          crossAxisCount: 4,
                                           crossAxisSpacing: 10.sp,
                                           mainAxisSpacing: 10.sp,
                                         ),
