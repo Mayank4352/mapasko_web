@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_view/calendar_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,15 +29,38 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   void initState() {
     super.initState();
-    _socialController.add(CalendarEventData(
-        title: 'Test Event',
-        color: Colors.red,
-        date: DateTime.now(),
-        description: "This is the event made for testing"));
-    _eventController.add(CalendarEventData(
-        title: 'Test Event',
-        date: DateTime.now(),
-        description: "This is the event made for testing"));
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      CollectionReference dbRef =
+          FirebaseFirestore.instance.collection('calendar');
+      Map<String, dynamic> socialMap =
+          await dbRef.doc('socialEvents').get().then((value) async {
+        return value.data() as Map<String, dynamic>;
+      });
+      socialMap.forEach((key, value) {
+        _socialController.add(CalendarEventData(
+          title: key,
+          color: Colors.red,
+          date: value['startTime'].toDate(),
+          startTime: value['startTime'].toDate(),
+          endTime: value['endTime'].toDate(),
+        ));
+      });
+      Map<String, dynamic> officeMap =
+          await dbRef.doc('officeEvents').get().then((value) async {
+        return value.data() as Map<String, dynamic>;
+      });
+      officeMap.forEach((key, value) {
+        _eventController.add(CalendarEventData(
+          title: key,
+          color: Colors.blue,
+          date: value['startTime'].toDate(),
+          startTime: value['startTime'].toDate(),
+          endTime: value['endTime'].toDate(),
+        ));
+      });
+      log(socialMap.toString());
+      log(officeMap.toString());
+    });
   }
 
   @override
@@ -158,12 +182,13 @@ class _CalendarPageState extends State<CalendarPage> {
                               onEventTap: (event, date) => setState(() {
                                 eventDetails = event.title;
                                 eventDetails +=
-                                    "\n\n${date.day}/${date.month}/${date.year}";
-                                eventDetails += "\n\n${event.description}";
+                                    "\n\n${date.day}/${date.month}/${date.year}\n ${event.startTime} - ${event.endTime}";
+                                eventDetails +=
+                                    "\n\n${event.description ?? "No description added"}";
                               }),
                               headerBuilder: MonthHeader.hidden,
                               showWeekTileBorder: true,
-                              hideDaysNotInMonth: true,
+                              // hideDaysNotInMonth: true,
                               borderColor: Colors.black,
                               borderSize: 2.sp,
                             ),
@@ -242,11 +267,12 @@ class _CalendarPageState extends State<CalendarPage> {
                               eventDetails = event.title;
                               eventDetails +=
                                   "\n\n${date.day}/${date.month}/${date.year}";
-                              eventDetails += "\n\n${event.description}";
+                              eventDetails +=
+                                  "\n\n${event.description ?? "No description added"}";
                             }),
                             headerBuilder: MonthHeader.hidden,
                             showWeekTileBorder: true,
-                            hideDaysNotInMonth: true,
+                            // hideDaysNotInMonth: true,
                             borderColor: Colors.black,
                             borderSize: 2.sp,
                           ),

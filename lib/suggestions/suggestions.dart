@@ -8,6 +8,7 @@ import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:intl/intl.dart';
 import 'dart:developer';
+import 'package:emailjs/emailjs.dart' as emailjs;
 
 class SuggestionsPage extends StatefulWidget {
   const SuggestionsPage({super.key});
@@ -55,6 +56,29 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
           gravity: ToastGravity.BOTTOM,
         );
         log(e.toString());
+      }
+      Map<String, dynamic> templateParams = {
+        'name': _nameController.text,
+        'email': _emailController.text,
+        'phNo': _mobileController.text,
+        'towerFlatNo': _towerController.text,
+        'query': _messageController.text,
+        'dateTime': DateTime.now().toString(),
+      };
+
+      try {
+        await emailjs.send(
+          'default_service',
+          'template_oal6nmt',
+          templateParams,
+          const emailjs.Options(
+            publicKey: 'OX3EYtfRAD4X8RWEZ',
+            privateKey: 'YPtjabPJudUROZYazZktn',
+          ),
+        );
+        print('SUCCESS!');
+      } catch (error) {
+        print('$error');
       }
     }
   }
@@ -215,11 +239,7 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                         if (value == null || value.isEmpty) {
                                           return 'Please enter tower and flat no.';
                                         }
-                                        if (!RegExp(
-                                                r'^(?:[1-9]|[1-9]\d|[1-3]\d{2}|400)$')
-                                            .hasMatch(value)) {
-                                          return 'Please enter a valid flat number';
-                                        }
+
                                         return null;
                                       },
                                     ),
