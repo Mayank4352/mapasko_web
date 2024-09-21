@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.asset(
-                    'assets/mapsko-royal-ville-top2.jpg',
+                    'assets/Garden_mapsko.jpg',
                     height: 100.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
