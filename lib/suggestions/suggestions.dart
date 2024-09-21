@@ -152,9 +152,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
-                                      style: GoogleFonts.nunito(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w900),
                                       expands: true,
                                       minLines: null,
                                       maxLines: null,
@@ -174,9 +171,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
-                                      style: GoogleFonts.nunito(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -200,9 +194,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
-                                      style: GoogleFonts.nunito(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -225,9 +216,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.1 * constraints.maxHeight,
                                     child: TextFormField(
-                                      style: GoogleFonts.nunito(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
@@ -247,9 +235,6 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
                                   SizedBox(
                                     height: 0.25 * constraints.maxHeight,
                                     child: TextFormField(
-                                      style: GoogleFonts.nunito(
-                                          fontSize: 15.sp,
-                                          fontWeight: FontWeight.w900),
                                       minLines: null,
                                       maxLines: null,
                                       expands: true,
