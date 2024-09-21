@@ -7,18 +7,19 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue[900],
+      color: Colors.transparent,
       width: double.infinity,
-      height: 5.h,
+      height: 3.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             '©Madhav Gupta & Mayank Sharma. All Rights Reserved.',
+            textAlign: TextAlign.left,
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 12.sp,
-              fontWeight: FontWeight.bold,
+              // fontWeight: FontWeight.bold,
             ),
           ),
         ],

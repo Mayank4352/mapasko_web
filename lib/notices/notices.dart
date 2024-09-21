@@ -53,7 +53,7 @@ class _NoticePageState extends State<NoticePage> {
             ),
           ),
           SingleChildScrollView(
-            child: Container(
+            child: SizedBox(
               height: 100.h,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

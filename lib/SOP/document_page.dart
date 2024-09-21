@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapsko/SOP/widgets/document_widget.dart';
+import 'package:mapsko/home/widgets/footer.dart';
 import 'package:mapsko/home/widgets/home_appbar.dart';
 import 'package:mapsko/home/widgets/home_drawer.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -116,6 +117,7 @@ class _DocumentPageState extends State<DocumentPage> {
                                 padding: const EdgeInsets.all(10),
                               ),
                       ),
+                Footer(),
               ],
             ),
           ),
