@@ -79,7 +79,7 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 2.h),
                             Text(
-                              'Mapsko Royale Ville Flat Owners Association',
+                              'Royale Ville Flat Owners Association',
                               style: TextStyle(
                                 fontSize: 100.w < 900 ? 20.sp : 15.sp,
                                 fontWeight: FontWeight.w900,
