@@ -89,7 +89,7 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 1.h),
                             Text(
-                              'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Royale Ville Flat Owners Association (RVFOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Casa Bella one of the better communities to live in New Gurgaon.',
+                              'For any residential community to become better, there is a need for a strong, dependable Owners Association. The main job of the Owners Association is to do everything possible that is a welfare to the residents and property owners. The current Royale Ville Flat Owners Association (RVFOA) has a fantastic leadership & dynamic team and is truly working for excellent positive changes to the community. The contribution of the current Association management is poised to make Mapsko Royale Ville one of the better communities to live in New Gurgaon.',
                               style: TextStyle(
                                 fontSize: 100.w < 900 ? 15.sp : 10.2.sp,
                                 fontWeight: FontWeight.bold,
