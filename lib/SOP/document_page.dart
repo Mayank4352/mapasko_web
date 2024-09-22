@@ -117,7 +117,7 @@ class _DocumentPageState extends State<DocumentPage> {
                                 padding: const EdgeInsets.all(10),
                               ),
                       ),
-                Footer(),
+                const Footer(),
               ],
             ),
           ),

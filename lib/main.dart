@@ -71,14 +71,14 @@ class MyApp extends StatelessWidget {
         );
       case '/suggestions':
         return PageTransition(
-          child: SuggestionsPage(),
+          child: const SuggestionsPage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
         );
       case '/notices':
         return PageTransition(
-          child: NoticePage(),
+          child: const NoticePage(),
           duration: const Duration(milliseconds: 300),
           type: PageTransitionType.fade,
           settings: settings,
