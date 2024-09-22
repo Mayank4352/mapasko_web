@@ -29,7 +29,7 @@ class ContactUsPage extends StatelessWidget {
           icon: Icons.location_on,
           heading: "Address",
           subHeading:
-              "00, Basement, Royale Ville, Vatika Road, Sector 82, Gurugram, Haryana 122012"),
+              "Royale Ville, Vatika Road, Sector 82, Gurugram, Haryana 122012"),
       const DetailsWidget(
           icon: Icons.holiday_village,
           heading: "Society Description",
