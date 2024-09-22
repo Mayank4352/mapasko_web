@@ -98,7 +98,7 @@ class _GalleryPageState extends State<GalleryPage> {
               )
             else
               ...generateMarquees(),
-            Footer(),
+            const Footer(),
           ],
         ),
       ),
