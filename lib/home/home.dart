@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 1.h),
                             Text(
-                              'Mapsko Royale Ville is a luxury society with apartments and villas in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
+                              'Mapsko Royale Ville is a luxury society with apartments in perfect combination of comfort and style at prime location in Sector 82, Gurgaon surrounded with Malls, Banks, Schools and everything important in vicinity.',
                               textAlign: TextAlign.justify,
                               style: TextStyle(
                                 fontSize: 100.w < 900 ? 15.sp : 11.sp,
