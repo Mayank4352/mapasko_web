@@ -47,6 +47,8 @@ class GalleryMarquee extends StatelessWidget {
                 ),
               ),
               Text(eventName,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.nunito(
                       fontSize: 100.w < 900 ? 16.sp : 11.sp,
                       color: const Color.fromARGB(255, 0, 44, 82),
