@@ -35,13 +35,13 @@ class _TeamPageState extends State<TeamPage> {
   Map<String, String> abanteImgPaths = {
     "assets/Pawan Kumar.png": "Mr. Pawan Yadav ",
     "assets/amitkr.png": "Mr. Amit Kumar Yadav",
-    "assets/sandeep.jpg": "Mr. Sandeep Yadav",
-    "assets/pooja.jpg": "Ms. Pooja Gupta"
+    "assets/manmeet.jpg": "Mr. Manmeet Yadav",
+    "assets/shivani.jpg": "Ms. Shivani Sharma"
   };
   List<String> abantePositions = [
     'Operations Manager',
     'Estate Manager\n9319884424',
-    'Technical Manager\n9319884425',
+    'Technical Manager\n8826277503 ',
     'Help Desk\n0124-5059418/9319884427'
   ];
 
