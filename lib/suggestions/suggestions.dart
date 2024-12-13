@@ -76,9 +76,9 @@ class _SuggestionsPageState extends State<SuggestionsPage> {
             privateKey: 'YPtjabPJudUROZYazZktn',
           ),
         );
-        print('SUCCESS!');
+        log('SUCCESS!');
       } catch (error) {
-        print('$error');
+        log('$error');
       }
     }
   }
