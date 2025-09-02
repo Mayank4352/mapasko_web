@@ -1,4 +1,5 @@
 import 'package:calendar_view/calendar_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -12,6 +13,7 @@ import 'package:mapsko/home/home.dart';
 import 'package:mapsko/notices/notices.dart';
 import 'package:mapsko/suggestions/suggestions.dart';
 import 'package:mapsko/team/team.dart';
+import 'package:mapsko/under_maintainence.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -20,11 +22,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  Map<String, dynamic> adminData = <String, dynamic>{};
+  final dbRef = FirebaseFirestore.instance.collection('admin').doc('admin');
+  await dbRef
+      .get()
+      .then((value) => adminData = value.data() as Map<String, dynamic>);
+  final bool underMaintainence = adminData['underMaintainence'] ?? false;
+  runApp(MyApp(underMaintainence: underMaintainence));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool underMaintainence;
+  const MyApp({super.key, required this.underMaintainence});
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/home':
@@ -105,8 +114,10 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: const HomePage(),
-          onGenerateRoute: onGenerateRoute,
+          home: underMaintainence
+              ? const UnderMaintainencePage()
+              : const HomePage(),
+          onGenerateRoute: underMaintainence ? null : onGenerateRoute,
         ),
       );
     });
